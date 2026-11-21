@@ -58,6 +58,7 @@ function validatePng(buf: Buffer): void {
   }
 
   let offset = 8;
+  let chunkCount = 0;
   let sawIhdr = false;
   let sawIdat = false;
   let totalIdatBytes = 0;
@@ -85,6 +86,11 @@ function validatePng(buf: Buffer): void {
         `CRC32 mismatch in chunk ${chunkType} at offset ${offset}: expected 0x${expectedCrc.toString(16)}, got 0x${actualCrc.toString(16)}`
       );
     }
+
+    if (chunkCount === 0 && chunkType !== "IHDR") {
+      throw new Error(`First PNG chunk must be IHDR, found ${chunkType}`);
+    }
+    chunkCount++;
 
     if (chunkType === "IHDR") {
       sawIhdr = true;
