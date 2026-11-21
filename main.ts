@@ -45,13 +45,22 @@ function validatePng(buf: Buffer): void {
 
   const width = buf.readUInt32BE(16);
   const height = buf.readUInt32BE(20);
+  const bitDepth = buf[24];
+  const colorType = buf[25];
+  const interlaceMethod = buf[28];
   if (width !== EXPECTED_WIDTH || height !== EXPECTED_HEIGHT) {
     throw new Error(`Invalid PNG dimensions: ${width}x${height} (expected ${EXPECTED_WIDTH}x${EXPECTED_HEIGHT})`);
+  }
+  if (bitDepth !== 8 || (colorType !== 2 && colorType !== 6) || interlaceMethod !== 0) {
+    throw new Error(
+      `Unexpected PNG format: bitDepth=${bitDepth}, colorType=${colorType}, interlace=${interlaceMethod}`
+    );
   }
 
   let offset = 8;
   let sawIhdr = false;
   let sawIdat = false;
+  let totalIdatBytes = 0;
   let sawIend = false;
 
   while (offset < buf.byteLength) {
@@ -81,6 +90,7 @@ function validatePng(buf: Buffer): void {
       sawIhdr = true;
     } else if (chunkType === "IDAT") {
       sawIdat = true;
+      totalIdatBytes += length;
     } else if (chunkType === "IEND") {
       sawIend = true;
       if (length !== 0 || crcOffset + 4 !== buf.byteLength) {
@@ -91,8 +101,10 @@ function validatePng(buf: Buffer): void {
     offset = crcOffset + 4;
   }
 
-  if (!sawIhdr || !sawIdat || !sawIend) {
-    throw new Error(`Missing required PNG chunks: IHDR=${sawIhdr}, IDAT=${sawIdat}, IEND=${sawIend}`);
+  if (!sawIhdr || !sawIdat || totalIdatBytes === 0 || !sawIend) {
+    throw new Error(
+      `Missing required PNG chunks: IHDR=${sawIhdr}, IDAT=${sawIdat} (${totalIdatBytes} bytes), IEND=${sawIend}`
+    );
   }
 }
 
