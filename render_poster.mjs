@@ -28,7 +28,7 @@ function buildHtml() {
     height: 1024px;
     overflow: hidden;
     background: #F8F4EC;
-    color: #111827;
+    color: #0F172A;
     font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: geometricPrecision;
@@ -36,53 +36,47 @@ function buildHtml() {
   .page {
     width: 1024px;
     height: 1024px;
-    padding: 6px 10px;
+    padding: 6px 8px;
     display: grid;
-    grid-template-rows: 68px 286px 248px 236px 144px 24px;
+    grid-template-rows: 72px 302px 302px 302px 28px;
     gap: 0px;
     background: #F8F4EC;
-    border: 3px solid #111827;
+    border: 3px solid #0F172A;
     position: relative;
   }
 
-  /* CLASSIC BROADSHEET MASTHEAD */
+  /* BROADSHEET MASTHEAD (ZERO TEXT < 13px) */
   .masthead {
     display: grid;
-    grid-template-columns: 236px 1fr 258px;
+    grid-template-columns: 218px 1fr 252px;
     align-items: center;
-    background: #111827;
+    background: #0F172A;
     color: #F8F4EC;
-    padding: 5px 12px;
+    padding: 6px 12px;
     border-bottom: 4px solid #B91C1C;
-    gap: 10px;
+    gap: 8px;
   }
   .mast-left {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 2px;
-    border-right: 1px solid #374151;
+    border-right: 1.5px solid #334155;
     padding-right: 10px;
   }
-  .mast-kicker {
-    font-size: 9.5px;
+  .mast-ear-top {
+    font-size: 13.5px;
     font-weight: 900;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     color: #F87171;
     text-transform: uppercase;
     white-space: nowrap;
   }
-  .mast-edition {
-    font-size: 10.2px;
+  .mast-ear-sub {
+    font-size: 13px;
     font-weight: 800;
-    color: #F9FAFB;
-    letter-spacing: 0.25px;
-    white-space: nowrap;
-  }
-  .mast-sub {
-    font-size: 9.2px;
-    font-weight: 700;
     color: #FCD34D;
-    letter-spacing: 0.35px;
+    letter-spacing: 0.3px;
     white-space: nowrap;
   }
   .mast-center {
@@ -91,23 +85,14 @@ function buildHtml() {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2px;
   }
   .mast-title {
     font-family: Georgia, "Times New Roman", Times, serif;
-    font-size: 32.5px;
+    font-size: 35.5px;
     font-weight: 900;
-    letter-spacing: 0.9px;
+    letter-spacing: 0.6px;
     color: #FFFFFF;
-    line-height: 1.02;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-  .mast-deck {
-    font-size: 9.8px;
-    font-weight: 800;
-    letter-spacing: 1.2px;
-    color: #E5E7EB;
+    line-height: 1.05;
     text-transform: uppercase;
     white-space: nowrap;
   }
@@ -116,128 +101,86 @@ function buildHtml() {
     flex-direction: column;
     align-items: flex-end;
     justify-content: center;
-    gap: 2px;
   }
   .date-banner {
     background: #B91C1C;
     color: #FFFFFF;
-    font-size: 14.5px;
+    font-size: 15px;
     font-weight: 900;
-    letter-spacing: 0.75px;
-    padding: 4px 10px;
-    border-radius: 2px;
-    border: 1.5px solid #FCA5A5;
+    letter-spacing: 0.5px;
+    padding: 7px 10px;
+    border-radius: 3px;
+    border: 2px solid #FCA5A5;
     text-transform: uppercase;
     white-space: nowrap;
   }
-  .date-meta {
-    font-size: 9px;
-    font-weight: 700;
-    color: #D1D5DB;
-    letter-spacing: 0.45px;
-    white-space: nowrap;
-  }
 
-  /* BROADSHEET TIER ROWS */
-  .tier-a {
-    display: grid;
-    grid-template-columns: 38fr 31fr 31fr;
-    border-bottom: 2px solid #111827;
-    background: #F8F4EC;
-  }
-  .tier-b {
+  /* 3x3 SYMMETRIC BROADSHEET GRID */
+  .grid-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    border-bottom: 2px solid #111827;
-    background: #F8F4EC;
-  }
-  .tier-c {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    border-bottom: 2.5px solid #111827;
+    border-bottom: 2px solid #0F172A;
     background: #F8F4EC;
   }
 
-  /* BROADSHEET COLUMNS (NO ROUNDED SAAS BOXES) */
-  .story {
-    padding: 5px 8px 5px 8px;
+  .panel {
+    padding: 6px 9px 6px 9px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
     position: relative;
-    border-right: 1px solid #C8BFA8;
+    border-right: 1.5px solid #C8BFA8;
     background: #F8F4EC;
   }
-  .story:last-child {
+  .panel:last-child {
     border-right: none;
   }
-  .story.lead-col {
-    background: #FCF9F2;
-  }
 
-  .story-kicker {
+  .panel-kicker {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 4px;
-    height: 17px;
+    gap: 6px;
+    height: 21px;
     flex-shrink: 0;
-    border-top: 3px solid #111827;
+    border-top: 3.5px solid #0F172A;
     padding-top: 2px;
   }
-  .kicker-left {
-    font-size: 9.8px;
+  .kicker-beat {
+    font-size: 13px;
     font-weight: 900;
-    letter-spacing: 0.45px;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-  .kicker-loc {
-    font-size: 9.2px;
-    font-weight: 800;
-    color: #4B5563;
     letter-spacing: 0.3px;
     text-transform: uppercase;
     white-space: nowrap;
   }
-  .tier-c .kicker-left {
-    font-size: 8.6px;
-    letter-spacing: 0.25px;
-  }
-  .tier-c .kicker-loc {
-    font-size: 8.2px;
-    letter-spacing: 0.15px;
+  .kicker-loc {
+    font-size: 13px;
+    font-weight: 800;
+    color: #334155;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    white-space: nowrap;
   }
 
   .headline {
     font-family: Georgia, "Times New Roman", Times, serif;
-    font-size: 18.5px;
+    font-size: 21.5px;
     font-weight: 900;
-    color: #111827;
-    line-height: 1.08;
-    letter-spacing: -0.25px;
-    margin: 2px 0 3px 0;
+    color: #0F172A;
+    line-height: 1.1;
+    letter-spacing: -0.35px;
+    margin: 1px 0 3px 0;
     white-space: nowrap;
     overflow: hidden;
     flex-shrink: 0;
-  }
-  .story.lead-col .headline {
-    font-size: 20.5px;
-  }
-  .tier-b .headline {
-    font-size: 17.8px;
-  }
-  .tier-c .headline {
-    font-size: 15.2px;
-    letter-spacing: -0.3px;
   }
 
   .art-frame {
     width: 100%;
     flex: 1;
     min-height: 0;
-    border: 1px solid #9CA3AF;
+    border: 1.5px solid #64748B;
     background: #FFFFFF;
     overflow: hidden;
     display: flex;
@@ -251,997 +194,760 @@ function buildHtml() {
     font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
   }
 
-  .caption {
-    font-size: 11.4px;
-    font-weight: 600;
-    color: #1F2937;
-    line-height: 1.22;
-    margin-top: 3px;
-    flex-shrink: 0;
-  }
-  .tier-c .caption {
-    font-size: 10.5px;
-    line-height: 1.19;
-  }
-  .caption strong {
-    color: #111827;
+  .short-label {
+    font-size: 13.6px;
     font-weight: 800;
-  }
-
-  /* TIER D: AROUND THE WORLD 6-DISPATCH BAND (144px tall) */
-  .tier-d {
-    display: flex;
-    flex-direction: column;
-    background: #F3EDE0;
-    border-bottom: 1.5px solid #111827;
-    overflow: hidden;
-  }
-  .tier-d-header {
-    height: 20px;
-    background: #1F2937;
-    color: #F9FAFB;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 10px;
-    font-size: 9.8px;
-    font-weight: 900;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    flex-shrink: 0;
-  }
-  .tier-d-header span.gold {
-    color: #FCD34D;
-  }
-  .tier-d-grid {
-    flex: 1;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-  }
-  .brief-cell {
-    display: grid;
-    grid-template-columns: 34px 1fr;
-    align-items: center;
-    gap: 6px;
-    padding: 2px 7px;
-    border-right: 1px solid #C8BFA8;
-    border-bottom: 1px solid #C8BFA8;
-    background: #FAF6EE;
-    overflow: hidden;
-  }
-  .brief-cell:nth-child(3n) {
-    border-right: none;
-  }
-  .brief-cell:nth-child(n+4) {
-    border-bottom: none;
-  }
-  .brief-icon {
-    width: 34px;
-    height: 34px;
-    border-radius: 4px;
-    overflow: hidden;
-    border: 1px solid #9CA3AF;
-    flex-shrink: 0;
-  }
-  .brief-icon svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
-  .brief-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    min-width: 0;
-    overflow: hidden;
-    gap: 1px;
-  }
-  .brief-top {
-    display: flex;
-    align-items: center;
-    width: 100%;
-  }
-  .brief-pill {
-    font-size: 7.8px;
-    font-weight: 900;
-    letter-spacing: 0.35px;
-    padding: 1px 4px;
-    border-radius: 2px;
-    color: #FFFFFF;
-    text-transform: uppercase;
-    flex-shrink: 0;
-  }
-  .brief-headline {
-    font-family: Georgia, "Times New Roman", Times, serif;
-    font-size: 13px;
-    font-weight: 900;
-    color: #111827;
-    white-space: nowrap;
-    overflow: hidden;
-    letter-spacing: -0.2px;
-    line-height: 1.12;
-    width: 100%;
-  }
-  .brief-lead {
-    font-size: 9.3px;
-    font-weight: 600;
-    color: #374151;
+    color: #0F172A;
     line-height: 1.15;
-    letter-spacing: -0.1px;
+    letter-spacing: -0.25px;
+    margin-top: 4px;
     white-space: nowrap;
     overflow: hidden;
-    width: 100%;
+    flex-shrink: 0;
   }
-  .brief-lead strong {
-    color: #111827;
-    font-weight: 800;
+  .short-label span.accent {
+    color: #B91C1C;
+    font-weight: 900;
   }
 
-  /* FOOTER DATELINE RULE */
+  /* BOTTOM DATELINE BAR (13px BOLD) */
   .footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #111827;
-    color: #F9FAFB;
+    background: #0F172A;
+    color: #F8FAFC;
     padding: 0 10px;
-    font-size: 9px;
-    font-weight: 800;
-    letter-spacing: 0.35px;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.25px;
   }
   .legend {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
   }
   .legend-item {
     display: flex;
     align-items: center;
-    gap: 3.5px;
+    gap: 4px;
+    white-space: nowrap;
   }
   .dot {
-    width: 7.5px;
-    height: 7.5px;
-    border-radius: 1.5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
     display: inline-block;
   }
 </style>
 </head>
 <body>
   <div class="page">
-    <!-- CLASSIC BROADSHEET MASTHEAD -->
+    <!-- BROADSHEET MASTHEAD -->
     <header class="masthead">
       <div class="mast-left">
-        <div class="mast-kicker">GLOBAL EDITION · 7 REGIONS</div>
-        <div class="mast-edition">10 BEATS · 16 VERIFIED DISPATCHES</div>
-        <div class="mast-sub">00:00–24:00 UTC · ALL CONTINENTS</div>
+        <div class="mast-ear-top">6 CONTINENTS · 9 BEATS</div>
+        <div class="mast-ear-sub">WORLD EDITION · 20 NOV</div>
       </div>
       <div class="mast-center">
         <div class="mast-title">THE WORLD IN ONE DAY</div>
-        <div class="mast-deck">ILLUSTRATED WORLD NEWS FRONT PAGE · 16 MAJOR STORIES</div>
       </div>
       <div class="mast-right">
         <div class="date-banner">FRIDAY · 20 NOVEMBER 2026</div>
-        <div class="date-meta">VOL. CCXXVI · ISSUE 2026-11-20</div>
       </div>
     </header>
 
-    <!-- TIER A: ABOVE-THE-FOLD HERO ROW (38% | 31% | 31%) -->
-    <section class="tier-a">
-      <!-- STORY 1 (LEAD, 38%): KYIV BRIDGES -->
-      <article class="story lead-col">
-        <div class="story-kicker" style="border-top-color:#B91C1C;">
-          <span class="kicker-left" style="color:#B91C1C;">EUROPE · WAR</span>
-          <span class="kicker-loc">KYIV, UKRAINE</span>
+    <!-- ROW 1 -->
+    <section class="grid-row">
+      <!-- PANEL 1: EUROPE · WAR — KYIV -->
+      <article class="panel">
+        <div class="panel-kicker" style="border-top-color:#B91C1C;">
+          <span class="kicker-beat" style="color:#B91C1C;">EUROPE · WAR</span>
+          <span class="kicker-loc">KYIV</span>
         </div>
         <h2 class="headline">Missiles Hit 3 Kyiv Bridges</h2>
         <div class="art-frame">
-          <svg viewBox="0 0 364 176" xmlns="http://www.w3.org/2000/svg">
-            <!-- Deep twilight sky over Kyiv -->
-            <rect width="364" height="176" fill="#0B1120"/>
-            <!-- Anti-aircraft searchlight beams -->
-            <polygon points="48,100 96,0 122,0" fill="#1E293B" opacity="0.6"/>
-            <polygon points="188,100 142,0 166,0" fill="#1E293B" opacity="0.6"/>
-            <polygon points="282,100 236,0 260,0" fill="#1E293B" opacity="0.5"/>
+          <svg viewBox="0 0 316 212" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="kyiv-sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#070B19"/>
+                <stop offset="60%" stop-color="#131C31"/>
+                <stop offset="100%" stop-color="#2A1B2E"/>
+              </linearGradient>
+              <linearGradient id="dnieper-water" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#082F49"/>
+                <stop offset="100%" stop-color="#041E30"/>
+              </linearGradient>
+            </defs>
+            <rect width="316" height="212" fill="url(#kyiv-sky)"/>
+            <!-- Searchlight cones -->
+            <polygon points="38,124 84,0 112,0" fill="#1E293B" opacity="0.55"/>
+            <polygon points="162,124 118,0 144,0" fill="#1E293B" opacity="0.55"/>
+            <polygon points="244,124 202,0 226,0" fill="#1E293B" opacity="0.45"/>
 
-            <!-- Billowing dark smoke plumes rising from the 3 bridge spans -->
-            <path d="M58,116 C44,84 68,54 50,14 C78,38 86,78 74,116 Z" fill="#334155" opacity="0.85"/>
-            <path d="M178,120 C164,82 192,48 174,8 C204,34 212,78 196,120 Z" fill="#334155" opacity="0.88"/>
-            <path d="M292,124 C280,90 304,58 290,20 C316,44 322,86 308,124 Z" fill="#334155" opacity="0.85"/>
+            <!-- Volumetric dark smoke columns -->
+            <path d="M46,142 C32,102 58,68 40,20 C68,46 78,94 64,142 Z" fill="#334155" opacity="0.85"/>
+            <path d="M152,146 C138,100 168,62 148,12 C180,42 188,96 172,146 Z" fill="#334155" opacity="0.88"/>
+            <path d="M250,150 C238,108 264,74 248,26 C276,54 282,104 268,150 Z" fill="#334155" opacity="0.85"/>
 
-            <!-- Darkened Kyiv skyline silhouette with cathedral domes & unlit apartment towers -->
-            <path d="M0,100 L18,100 L18,66 L40,66 L40,92 L58,92 L58,58 L65,38 L72,58 L72,94 L98,94 L98,64 L132,64 L132,96 L154,96 L154,60 L161,40 L168,60 L168,96 L204,96 L204,68 L240,68 L240,98 L266,98 L266,74 L296,74 L296,100 L364,100 L364,112 L0,112 Z" fill="#162032"/>
-            <!-- Golden-domed Lavra cathedral silhouettes (darkened) -->
-            <circle cx="65" cy="37" r="6" fill="#475569"/>
-            <line x1="65" y1="26" x2="65" y2="33" stroke="#64748B" stroke-width="2"/>
-            <circle cx="161" cy="39" r="6" fill="#475569"/>
-            <line x1="161" y1="28" x2="161" y2="35" stroke="#64748B" stroke-width="2"/>
-            <!-- Darkened unlit apartment window grids -->
-            <g fill="#090D16">
-              <rect x="23" y="72" width="5" height="5"/><rect x="31" y="72" width="5" height="5"/>
-              <rect x="23" y="81" width="5" height="5"/><rect x="31" y="81" width="5" height="5"/>
-              <rect x="104" y="70" width="6" height="5"/><rect x="114" y="70" width="6" height="5"/>
-              <rect x="104" y="79" width="6" height="5"/><rect x="114" y="79" width="6" height="5"/>
-              <rect x="212" y="74" width="6" height="5"/><rect x="223" y="74" width="6" height="5"/>
-              <rect x="212" y="83" width="6" height="5"/><rect x="223" y="83" width="6" height="5"/>
+            <!-- Darkened Kyiv skyline with Pechersk Lavra golden domes & dark apartment blocks -->
+            <path d="M0,124 L16,124 L16,84 L36,84 L36,114 L50,114 L50,74 L57,50 L64,74 L64,116 L86,116 L86,80 L114,80 L114,118 L132,118 L132,76 L139,54 L146,76 L146,118 L178,118 L178,86 L208,86 L208,120 L232,120 L232,92 L258,92 L258,124 L316,124 L316,136 L0,136 Z" fill="#111827"/>
+            <!-- Lavra onion domes & crosses -->
+            <circle cx="57" cy="49" r="6" fill="#64748B"/>
+            <line x1="57" y1="37" x2="57" y2="45" stroke="#94A3B8" stroke-width="2"/>
+            <circle cx="139" cy="53" r="6" fill="#64748B"/>
+            <line x1="139" y1="41" x2="139" y2="49" stroke="#94A3B8" stroke-width="2"/>
+            <!-- Unlit blackout apartment windows -->
+            <g fill="#070B19">
+              <rect x="21" y="90" width="4.5" height="6"/><rect x="28" y="90" width="4.5" height="6"/>
+              <rect x="21" y="100" width="4.5" height="6"/><rect x="28" y="100" width="4.5" height="6"/>
+              <rect x="92" y="87" width="5" height="6"/><rect x="102" y="87" width="5" height="6"/>
+              <rect x="92" y="97" width="5" height="6"/><rect x="102" y="97" width="5" height="6"/>
+              <rect x="184" y="93" width="5" height="6"/><rect x="194" y="93" width="5" height="6"/>
             </g>
 
             <!-- Incoming Red Missile & Drone Streaks -->
-            <path d="M16,10 Q42,58 64,114" fill="none" stroke="#EF4444" stroke-width="2.5" stroke-dasharray="6,3"/>
-            <path d="M126,8 Q156,58 182,118" fill="none" stroke="#EF4444" stroke-width="2.5" stroke-dasharray="6,3"/>
-            <path d="M236,12 Q268,62 296,122" fill="none" stroke="#EF4444" stroke-width="2.5" stroke-dasharray="6,3"/>
-            <polygon points="98,24 114,19 108,27 114,32" fill="#EF4444" stroke="#FCA5A5" stroke-width="1"/>
-            <polygon points="204,20 220,15 214,23 220,28" fill="#EF4444" stroke="#FCA5A5" stroke-width="1"/>
+            <path d="M12,12 Q36,72 56,138" fill="none" stroke="#EF4444" stroke-width="3" stroke-dasharray="7,3"/>
+            <path d="M108,8 Q136,72 158,142" fill="none" stroke="#EF4444" stroke-width="3" stroke-dasharray="7,3"/>
+            <path d="M202,12 Q230,78 256,146" fill="none" stroke="#EF4444" stroke-width="3" stroke-dasharray="7,3"/>
+            <polygon points="84,28 100,22 94,31 100,37" fill="#EF4444" stroke="#FCA5A5" stroke-width="1.2"/>
+            <polygon points="180,24 196,18 190,27 196,33" fill="#EF4444" stroke="#FCA5A5" stroke-width="1.2"/>
 
-            <!-- Circular Blackout & Water-Cut Icon Medallion (Top Right) -->
-            <g transform="translate(328, 30)">
-              <circle cx="0" cy="0" r="23" fill="#1E293B" stroke="#F59E0B" stroke-width="2.2"/>
-              <polygon points="-6,-12 -14,-1 -7,-1 -11,11 2,-3 -5,-3" fill="#FACC15"/>
-              <path d="M9,-9 C9,-9 2,0 2,5 C2,8.8 5.2,11.5 9,11.5 C12.8,11.5 16,8.8 16,5 C16,0 9,-9 9,-9 Z" fill="#38BDF8"/>
-              <line x1="-16" y1="14" x2="16" y2="-14" stroke="#EF4444" stroke-width="3.5" stroke-linecap="round"/>
+            <!-- Power & Water Out Roundel (Top Right) -->
+            <g transform="translate(278, 34)">
+              <circle cx="0" cy="0" r="25" fill="#1E293B" stroke="#F59E0B" stroke-width="2.5"/>
+              <polygon points="-6,-13 -15,-1 -7,-1 -12,13 3,-3 -5,-3" fill="#FACC15"/>
+              <path d="M10,-10 C10,-10 2,0 2,6 C2,10.2 5.6,13.5 10,13.5 C14.4,13.5 18,10.2 18,6 C18,0 10,-10 10,-10 Z" fill="#38BDF8"/>
+              <line x1="-18" y1="16" x2="18" y2="-16" stroke="#EF4444" stroke-width="4" stroke-linecap="round"/>
             </g>
 
-            <!-- Dnieper River water -->
-            <rect x="0" y="108" width="364" height="68" fill="#082F49"/>
-            <path d="M0,124 Q91,118 182,124 T364,124 L364,176 L0,176 Z" fill="#0C4A6E"/>
+            <!-- Dnieper River Water & Shimmering Fire Reflections -->
+            <rect x="0" y="132" width="316" height="80" fill="url(#dnieper-water)"/>
+            <ellipse cx="56" cy="180" rx="24" ry="4.5" fill="#F97316" opacity="0.6"/>
+            <ellipse cx="56" cy="190" rx="15" ry="2.8" fill="#FEF08A" opacity="0.55"/>
+            <ellipse cx="158" cy="184" rx="26" ry="4.8" fill="#F97316" opacity="0.6"/>
+            <ellipse cx="158" cy="194" rx="16" ry="2.8" fill="#FEF08A" opacity="0.55"/>
+            <ellipse cx="256" cy="188" rx="22" ry="4.2" fill="#F97316" opacity="0.6"/>
+            <ellipse cx="256" cy="198" rx="13" ry="2.5" fill="#FEF08A" opacity="0.55"/>
 
-            <!-- Shimmering Orange & Gold Blast Reflections on River -->
-            <ellipse cx="64" cy="150" rx="24" ry="4" fill="#F97316" opacity="0.55"/>
-            <ellipse cx="64" cy="159" rx="15" ry="2.5" fill="#FEF08A" opacity="0.5"/>
-            <ellipse cx="182" cy="154" rx="26" ry="4.2" fill="#F97316" opacity="0.55"/>
-            <ellipse cx="182" cy="163" rx="16" ry="2.5" fill="#FEF08A" opacity="0.5"/>
-            <ellipse cx="296" cy="158" rx="22" ry="3.8" fill="#F97316" opacity="0.55"/>
-            <ellipse cx="296" cy="167" rx="14" ry="2.2" fill="#FEF08A" opacity="0.5"/>
+            <!-- 3 Distinct Perspective Bridges (Arch, Suspension, Truss) -->
+            <!-- Bridge 1 -->
+            <path d="M8,162 Q56,118 104,162" fill="none" stroke="#94A3B8" stroke-width="6"/>
+            <line x1="4" y1="144" x2="108" y2="144" stroke="#E2E8F0" stroke-width="4.2"/>
+            <line x1="26" y1="144" x2="26" y2="170" stroke="#64748B" stroke-width="4"/>
+            <line x1="86" y1="144" x2="86" y2="170" stroke="#64748B" stroke-width="4"/>
 
-            <!-- 3 Distinct Bridges (Arch, Cable-Stayed, Truss) Across Dnieper -->
-            <!-- Bridge 1 (Arch) -->
-            <path d="M10,134 Q64,96 118,134" fill="none" stroke="#94A3B8" stroke-width="5.5"/>
-            <line x1="6" y1="118" x2="122" y2="118" stroke="#E2E8F0" stroke-width="4"/>
-            <line x1="30" y1="118" x2="30" y2="142" stroke="#64748B" stroke-width="4"/>
-            <line x1="98" y1="118" x2="98" y2="142" stroke="#64748B" stroke-width="4"/>
+            <!-- Bridge 2 (Suspension / Cable-stayed) -->
+            <line x1="158" y1="102" x2="158" y2="174" stroke="#E2E8F0" stroke-width="5"/>
+            <line x1="158" y1="106" x2="114" y2="148" stroke="#94A3B8" stroke-width="1.8"/>
+            <line x1="158" y1="115" x2="128" y2="148" stroke="#94A3B8" stroke-width="1.8"/>
+            <line x1="158" y1="106" x2="202" y2="148" stroke="#94A3B8" stroke-width="1.8"/>
+            <line x1="158" y1="115" x2="188" y2="148" stroke="#94A3B8" stroke-width="1.8"/>
+            <line x1="110" y1="148" x2="206" y2="148" stroke="#E2E8F0" stroke-width="4.2"/>
 
-            <!-- Bridge 2 (Cable-Stayed Pylon) -->
-            <line x1="182" y1="80" x2="182" y2="146" stroke="#E2E8F0" stroke-width="4.5"/>
-            <line x1="182" y1="84" x2="134" y2="122" stroke="#94A3B8" stroke-width="1.6"/>
-            <line x1="182" y1="92" x2="148" y2="122" stroke="#94A3B8" stroke-width="1.6"/>
-            <line x1="182" y1="84" x2="230" y2="122" stroke="#94A3B8" stroke-width="1.6"/>
-            <line x1="182" y1="92" x2="216" y2="122" stroke="#94A3B8" stroke-width="1.6"/>
-            <line x1="126" y1="122" x2="238" y2="122" stroke="#E2E8F0" stroke-width="4"/>
+            <!-- Bridge 3 -->
+            <path d="M210,168 Q256,126 302,168" fill="none" stroke="#94A3B8" stroke-width="6"/>
+            <line x1="208" y1="152" x2="306" y2="152" stroke="#E2E8F0" stroke-width="4.2"/>
+            <line x1="228" y1="152" x2="228" y2="176" stroke="#64748B" stroke-width="4"/>
+            <line x1="284" y1="152" x2="284" y2="176" stroke="#64748B" stroke-width="4"/>
 
-            <!-- Bridge 3 (Tied-Arch Truss) -->
-            <path d="M244,140 Q296,102 348,140" fill="none" stroke="#94A3B8" stroke-width="5.5"/>
-            <line x1="242" y1="126" x2="352" y2="126" stroke="#E2E8F0" stroke-width="4"/>
-            <line x1="266" y1="126" x2="266" y2="148" stroke="#64748B" stroke-width="4"/>
-            <line x1="326" y1="126" x2="326" y2="148" stroke="#64748B" stroke-width="4"/>
+            <!-- 3 Glowing Multi-Layered Explosion Fireballs -->
+            <circle cx="56" cy="140" r="23" fill="#DC2626" opacity="0.88"/>
+            <polygon points="56,112 63,130 81,126 68,140 78,155 61,149 56,164 50,149 34,154 45,140 33,126 50,130" fill="#F97316"/>
+            <circle cx="56" cy="140" r="9" fill="#FEF08A"/>
 
-            <!-- 3 Vivid Multi-Layered Explosion Fireballs -->
-            <circle cx="64" cy="114" r="21" fill="#DC2626" opacity="0.88"/>
-            <polygon points="64,88 70,104 87,101 75,114 84,128 68,122 64,136 58,122 43,127 53,114 42,101 58,104" fill="#F97316"/>
-            <circle cx="64" cy="114" r="8" fill="#FEF08A"/>
+            <circle cx="158" cy="144" r="24" fill="#DC2626" opacity="0.88"/>
+            <polygon points="158,114 165,133 184,129 170,144 181,160 163,153 158,169 152,153 135,159 146,144 134,129 152,133" fill="#F97316"/>
+            <circle cx="158" cy="144" r="9.5" fill="#FEF08A"/>
 
-            <circle cx="182" cy="118" r="22" fill="#DC2626" opacity="0.88"/>
-            <polygon points="182,90 188,107 206,104 193,118 203,132 187,126 182,140 176,126 160,131 171,118 159,104 176,107" fill="#F97316"/>
-            <circle cx="182" cy="118" r="8.5" fill="#FEF08A"/>
-
-            <circle cx="296" cy="122" r="20" fill="#DC2626" opacity="0.88"/>
-            <polygon points="296,96 302,112 318,109 306,122 315,135 301,130 296,143 290,130 276,134 286,122 275,109 290,112" fill="#F97316"/>
-            <circle cx="296" cy="122" r="7.5" fill="#FEF08A"/>
+            <circle cx="256" cy="148" r="22" fill="#DC2626" opacity="0.88"/>
+            <polygon points="256,120 262,137 280,134 267,148 277,162 261,156 256,171 250,156 235,161 245,148 234,134 250,137" fill="#F97316"/>
+            <circle cx="256" cy="148" r="8.5" fill="#FEF08A"/>
           </svg>
         </div>
-        <p class="caption"><strong>~110 missiles &amp; 400 drones</strong> hit bridges and grid across Ukraine, <strong>killing at least 9</strong> and cutting Kyiv power &amp; water.</p>
+        <div class="short-label"><span class="accent">110 Missiles &amp; 400 Drones</span> · 9 Killed · Power Cut</div>
       </article>
 
-      <!-- STORY 2 (31%): EAST ASIA MARKETS -->
-      <article class="story">
-        <div class="story-kicker" style="border-top-color:#1E3A8A;">
-          <span class="kicker-left" style="color:#1E3A8A;">EAST ASIA · MARKETS</span>
-          <span class="kicker-loc">TAIPEI · SEOUL · TOKYO</span>
-        </div>
-        <h2 class="headline">AI Chip Rout Sinks Asia</h2>
-        <div class="art-frame">
-          <svg viewBox="0 0 294 176" xmlns="http://www.w3.org/2000/svg">
-            <rect width="294" height="176" fill="#0B1120"/>
-            <!-- Economist-style Financial Terminal Grid -->
-            <g stroke="#1E293B" stroke-width="1">
-              <line x1="0" y1="35" x2="294" y2="35"/>
-              <line x1="0" y1="70" x2="294" y2="70"/>
-              <line x1="0" y1="105" x2="294" y2="105"/>
-              <line x1="0" y1="140" x2="294" y2="140"/>
-              <line x1="106" y1="0" x2="106" y2="176"/>
-              <line x1="168" y1="0" x2="168" y2="176"/>
-              <line x1="230" y1="0" x2="230" y2="176"/>
-            </g>
-
-            <!-- Left: Gold-Pinned Silicon AI Wafer Cracking -->
-            <g transform="translate(52, 56)">
-              <g stroke="#FACC15" stroke-width="3.2" stroke-linecap="round">
-                <line x1="-20" y1="-39" x2="-20" y2="-30"/><line x1="-7" y1="-39" x2="-7" y2="-30"/><line x1="7" y1="-39" x2="7" y2="-30"/><line x1="20" y1="-39" x2="20" y2="-30"/>
-                <line x1="-20" y1="30" x2="-20" y2="39"/><line x1="-7" y1="30" x2="-7" y2="39"/><line x1="7" y1="30" x2="7" y2="39"/><line x1="20" y1="30" x2="20" y2="39"/>
-                <line x1="-39" y1="-20" x2="-30" y2="-20"/><line x1="-39" y1="-7" x2="-30" y2="-7"/><line x1="-39" y1="7" x2="-30" y2="7"/><line x1="-39" y1="20" x2="-30" y2="20"/>
-                <line x1="30" y1="-20" x2="39" y2="-20"/><line x1="30" y1="-7" x2="39" y2="-7"/><line x1="30" y1="7" x2="39" y2="7"/><line x1="30" y1="20" x2="39" y2="20"/>
-              </g>
-              <rect x="-30" y="-30" width="60" height="60" rx="6" fill="#1E293B" stroke="#38BDF8" stroke-width="2.4"/>
-              <rect x="-19" y="-19" width="38" height="38" rx="3" fill="#0F172A" stroke="#7DD3FC" stroke-width="1.5"/>
-              <path d="M-24,-24 L-4,-5 L6,-11 L24,24" fill="none" stroke="#EF4444" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <text x="0" y="6" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="900">AI</text>
-            </g>
-
-            <!-- Bottom Left: Downward Bitcoin Medallion & $61.4K -->
-            <g transform="translate(52, 138)">
-              <circle cx="-24" cy="0" r="18" fill="#F59E0B" stroke="#FEF08A" stroke-width="2"/>
-              <text x="-24" y="7" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="900">₿</text>
-              <text x="16" y="-4" text-anchor="middle" fill="#FEF08A" font-size="11.5" font-weight="900">$61.4K</text>
-              <path d="M16,2 L16,18 M9,11 L16,19 L23,11" fill="none" stroke="#EF4444" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            </g>
-
-            <!-- Right: Plunging Red Candlestick Line & 3 Bold Red Index Bars -->
-            <path d="M112,14 L152,28 L194,22 L238,58 L278,96" fill="none" stroke="#EF4444" stroke-width="3" stroke-linecap="round"/>
-            <polygon points="284,102 270,98 280,88" fill="#EF4444"/>
-
-            <!-- TAIEX -6.2% -->
-            <text x="112" y="28" fill="#E2E8F0" font-size="12.5" font-weight="900">TAIEX</text>
-            <rect x="112" y="33" width="170" height="26" rx="3" fill="#DC2626" stroke="#FCA5A5" stroke-width="1.2"/>
-            <text x="275" y="52" text-anchor="end" fill="#FFFFFF" font-size="15.5" font-weight="900">-6.2%</text>
-
-            <!-- KOSPI -5.2% -->
-            <text x="112" y="81" fill="#E2E8F0" font-size="12.5" font-weight="900">KOSPI</text>
-            <rect x="112" y="86" width="144" height="26" rx="3" fill="#E11D48" stroke="#FDA4AF" stroke-width="1.2"/>
-            <text x="249" y="105" text-anchor="end" fill="#FFFFFF" font-size="15" font-weight="900">-5.2%</text>
-
-            <!-- NIKKEI -5.1% -->
-            <text x="112" y="134" fill="#E2E8F0" font-size="12.5" font-weight="900">NIKKEI</text>
-            <rect x="112" y="139" width="140" height="26" rx="3" fill="#F43F5E" stroke="#FECDD3" stroke-width="1.2"/>
-            <text x="245" y="158" text-anchor="end" fill="#FFFFFF" font-size="15" font-weight="900">-5.1%</text>
-          </svg>
-        </div>
-        <p class="caption">Taiwan posts worst week since 1991 (<strong>-6.2%</strong>) as chip &amp; AI stocks slide across Asia; Bitcoin dips to <strong>$61.4K</strong>.</p>
-      </article>
-
-      <!-- STORY 3 (31%): SOUTH ASIA CYCLONE -->
-      <article class="story">
-        <div class="story-kicker" style="border-top-color:#C2410C;">
-          <span class="kicker-left" style="color:#C2410C;">SOUTH ASIA · CYCLONE</span>
-          <span class="kicker-loc">ODISHA, INDIA</span>
+      <!-- PANEL 2: SOUTH ASIA · CYCLONE — INDIA -->
+      <article class="panel">
+        <div class="panel-kicker" style="border-top-color:#C2410C;">
+          <span class="kicker-beat" style="color:#C2410C;">SOUTH ASIA · CYCLONE</span>
+          <span class="kicker-loc">INDIA</span>
         </div>
         <h2 class="headline">Cyclone Akvan Hits Odisha</h2>
         <div class="art-frame">
-          <svg viewBox="0 0 294 176" xmlns="http://www.w3.org/2000/svg">
-            <rect width="294" height="176" fill="#075985"/>
-            <path d="M105,0 L294,0 L294,176 L48,176 Z" fill="#0C4A6E"/>
-            <!-- Wave crests & rain streaks -->
-            <path d="M196,150 Q210,143 224,150 T252,150" fill="none" stroke="#38BDF8" stroke-width="2"/>
-            <path d="M222,164 Q236,157 250,164 T278,164" fill="none" stroke="#38BDF8" stroke-width="2"/>
-            <line x1="152" y1="20" x2="134" y2="42" stroke="#7DD3FC" stroke-width="1.4" opacity="0.55"/>
-            <line x1="248" y1="26" x2="230" y2="48" stroke="#7DD3FC" stroke-width="1.4" opacity="0.55"/>
+          <svg viewBox="0 0 316 212" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="bengal-sea" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#0369A1"/>
+                <stop offset="100%" stop-color="#082F49"/>
+              </linearGradient>
+            </defs>
+            <rect width="316" height="212" fill="url(#bengal-sea)"/>
+            <!-- Churning wave crests & diagonal rain sheets -->
+            <path d="M204,178 Q220,170 236,178 T268,178" fill="none" stroke="#38BDF8" stroke-width="2.5"/>
+            <path d="M234,194 Q250,186 266,194 T298,194" fill="none" stroke="#38BDF8" stroke-width="2.5"/>
+            <line x1="164" y1="22" x2="142" y2="50" stroke="#BAE6FD" stroke-width="1.6" opacity="0.6"/>
+            <line x1="266" y1="28" x2="244" y2="56" stroke="#BAE6FD" stroke-width="1.6" opacity="0.6"/>
+            <line x1="292" y1="118" x2="270" y2="146" stroke="#BAE6FD" stroke-width="1.6" opacity="0.6"/>
 
-            <!-- Authentic Odisha Coastline -->
-            <path d="M0,0 L178,0 L162,28 L146,48 L130,70 C122,76 114,72 112,80 C110,86 118,88 112,96 L90,124 L64,152 L32,176 L0,176 Z" fill="#BBF7D0" stroke="#15803D" stroke-width="2.8"/>
-            <path d="M0,0 L140,0 L126,34 L104,66 L78,100 L42,138 L0,166 Z" fill="#86EFAC"/>
+            <!-- White surf & Lush Green Odisha Shoreline -->
+            <path d="M0,0 L194,0 L176,34 L158,58 L142,84 C132,90 124,86 122,96 C120,104 128,106 122,114 L98,146 L70,178 L36,212 L0,212 Z" fill="#DCFCE7" stroke="#E0F2FE" stroke-width="5"/>
+            <path d="M0,0 L190,0 L172,34 L154,58 L138,84 C128,90 120,86 118,96 C116,104 124,106 118,114 L94,146 L66,178 L32,212 L0,212 Z" fill="#86EFAC" stroke="#15803D" stroke-width="3"/>
+            <path d="M0,0 L148,0 L134,42 L108,82 L80,122 L42,168 L0,198 Z" fill="#4ADE80" opacity="0.5"/>
 
-            <!-- Civil-Defense Shelter Roof with Checkmark & 300K+ SAFE -->
+            <!-- Raised Concrete Cyclone Shelter with Bold Green Checkmark Shield (300K+) -->
             <g transform="translate(10, 6)">
-              <circle cx="33" cy="33" r="29" fill="#065F46" stroke="#34D399" stroke-width="2.5"/>
-              <polygon points="33,11 12,27 18,27 18,48 48,48 48,27 54,27" fill="#10B981" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"/>
-              <path d="M25,34 L31,41 L43,27" fill="none" stroke="#FEF08A" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="36" cy="36" r="33" fill="#065F46" stroke="#34D399" stroke-width="3"/>
+              <polygon points="36,11 12,29 19,29 19,53 53,53 53,29 60,29" fill="#10B981" stroke="#FFFFFF" stroke-width="2.2" stroke-linejoin="round"/>
+              <path d="M26,37 L34,45 L47,29" fill="none" stroke="#FEF08A" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
             </g>
-            <rect x="10" y="71" width="68" height="17" rx="3" fill="#065F46" stroke="#FFFFFF" stroke-width="1.2"/>
-            <text x="44" y="83" text-anchor="middle" fill="#FEF08A" font-size="10" font-weight="900">300K+ SAFE</text>
+            <rect x="8" y="82" width="76" height="23" rx="4" fill="#064E3B" stroke="#34D399" stroke-width="1.8"/>
+            <text x="46" y="99" text-anchor="middle" fill="#FEF08A" font-size="14.5" font-weight="900">300K+</text>
 
-            <!-- Wind-Bent Palms -->
+            <!-- Wind-Bent Coconut Palm Silhouettes (positioned cleanly below 300K+ badge) -->
             <g stroke-linecap="round">
-              <path d="M82,138 Q66,116 46,112" fill="none" stroke="#78350F" stroke-width="3.2"/>
-              <path d="M46,112 Q30,106 24,112 M46,112 Q28,114 26,124 M46,112 Q34,98 26,102" fill="none" stroke="#15803D" stroke-width="2.4"/>
-              <path d="M98,122 Q82,100 62,96" fill="none" stroke="#78350F" stroke-width="3.2"/>
-              <path d="M62,96 Q46,90 40,96 M62,96 Q44,98 42,108" fill="none" stroke="#15803D" stroke-width="2.4"/>
+              <path d="M74,180 Q58,156 38,152" fill="none" stroke="#78350F" stroke-width="3.8"/>
+              <path d="M38,152 Q20,144 14,152 M38,152 Q18,154 16,166 M38,152 Q24,136 16,140 M38,152 Q34,134 26,134" fill="none" stroke="#14532D" stroke-width="2.8"/>
+              <path d="M96,158 Q80,134 58,130" fill="none" stroke="#78350F" stroke-width="3.8"/>
+              <path d="M58,130 Q40,122 34,130 M58,130 Q38,132 36,144 M58,130 Q44,114 36,118" fill="none" stroke="#14532D" stroke-width="2.8"/>
             </g>
 
-            <!-- Multi-Band Spiral Cyclone Vortex -->
-            <g transform="translate(190, 86)">
-              <circle cx="0" cy="0" r="64" fill="#38BDF8" opacity="0.18"/>
-              <circle cx="0" cy="0" r="48" fill="#BAE6FD" opacity="0.26"/>
-              <circle cx="0" cy="0" r="32" fill="#E0F2FE" opacity="0.34"/>
-              <path d="M-11,-54 C34,-60 64,-22 52,20 C44,52 4,64 -32,48" fill="none" stroke="#E0F2FE" stroke-width="6.5" stroke-linecap="round"/>
-              <path d="M13,52 C-30,60 -62,24 -50,-16 C-42,-50 -4,-62 30,-46" fill="none" stroke="#7DD3FC" stroke-width="6" stroke-linecap="round"/>
-              <path d="M-30,-20 C-11,-40 26,-34 34,-8 C40,16 16,40 -13,32" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
-              <path d="M24,16 C9,34 -20,26 -28,4 C-34,-16 -15,-34 11,-26" fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"/>
-              <circle cx="0" cy="0" r="12" fill="#075985" stroke="#FACC15" stroke-width="3.8"/>
+            <!-- Large Multi-Arm Translucent Spiral Cyclone Vortex & Eye -->
+            <g transform="translate(204, 104)">
+              <circle cx="0" cy="0" r="74" fill="#38BDF8" opacity="0.2"/>
+              <circle cx="0" cy="0" r="56" fill="#BAE6FD" opacity="0.28"/>
+              <circle cx="0" cy="0" r="38" fill="#E0F2FE" opacity="0.36"/>
+              <path d="M-13,-64 C40,-70 74,-26 62,24 C52,62 4,74 -38,56" fill="none" stroke="#E0F2FE" stroke-width="7.5" stroke-linecap="round"/>
+              <path d="M15,62 C-36,70 -72,28 -60,-20 C-50,-60 -4,-72 36,-54" fill="none" stroke="#7DD3FC" stroke-width="7" stroke-linecap="round"/>
+              <path d="M-36,-24 C-13,-48 30,-40 40,-9 C48,20 20,48 -15,38" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/>
+              <path d="M28,20 C11,40 -24,30 -32,4 C-40,-20 -18,-40 13,-30" fill="none" stroke="#FFFFFF" stroke-width="5.5" stroke-linecap="round"/>
+              <circle cx="0" cy="0" r="14" fill="#075985" stroke="#FACC15" stroke-width="4.5"/>
             </g>
 
-            <!-- Landfall Track & Gopalpur Bullseye -->
-            <path d="M242,114 L122,88" fill="none" stroke="#EF4444" stroke-width="4" stroke-dasharray="7,3"/>
-            <polygon points="113,86 129,81 125,96" fill="#EF4444"/>
-            <circle cx="109" cy="85" r="13" fill="#DC2626" opacity="0.35"/>
-            <circle cx="109" cy="85" r="6" fill="#DC2626" stroke="#FFFFFF" stroke-width="2.2"/>
+            <!-- Landfall Arrow & Gopalpur Bullseye -->
+            <path d="M262,136 L132,106" fill="none" stroke="#EF4444" stroke-width="4.5" stroke-dasharray="8,4"/>
+            <polygon points="122,104 140,98 136,115" fill="#EF4444"/>
+            <circle cx="118" cy="103" r="15" fill="#DC2626" opacity="0.38"/>
+            <circle cx="118" cy="103" r="7" fill="#DC2626" stroke="#FFFFFF" stroke-width="2.5"/>
           </svg>
         </div>
-        <p class="caption">Crosses near <strong>Gopalpur</strong> (70–90 km/h gusts) after <strong>300,000+</strong> move to shelters; <strong>zero deaths</strong> reported.</p>
+        <div class="short-label">Gopalpur Landfall · <span class="accent" style="color:#047857;">300K Sheltered · 0 Deaths</span></div>
+      </article>
+
+      <!-- PANEL 3: ASIA & GLOBAL · MARKETS -->
+      <article class="panel">
+        <div class="panel-kicker" style="border-top-color:#1E3A8A;">
+          <span class="kicker-beat" style="color:#1E3A8A;">ASIA &amp; GLOBAL · MARKETS</span>
+          <span class="kicker-loc">TECH</span>
+        </div>
+        <h2 class="headline">AI Rout Sinks Asian Stocks</h2>
+        <div class="art-frame">
+          <svg viewBox="0 0 316 212" xmlns="http://www.w3.org/2000/svg">
+            <rect width="316" height="212" fill="#090F1D"/>
+            <!-- Glowing Financial Gridlines -->
+            <g stroke="#1E293B" stroke-width="1.2">
+              <line x1="0" y1="42" x2="316" y2="42"/>
+              <line x1="0" y1="84" x2="316" y2="84"/>
+              <line x1="0" y1="126" x2="316" y2="126"/>
+              <line x1="0" y1="168" x2="316" y2="168"/>
+              <line x1="114" y1="0" x2="114" y2="212"/>
+              <line x1="180" y1="0" x2="180" y2="212"/>
+              <line x1="246" y1="0" x2="246" y2="212"/>
+            </g>
+
+            <!-- Left: Gold-Pinned Silicon AI Processor Die with Red Fracture -->
+            <g transform="translate(56, 66)">
+              <g stroke="#FACC15" stroke-width="3.5" stroke-linecap="round">
+                <line x1="-22" y1="-44" x2="-22" y2="-34"/><line x1="-8" y1="-44" x2="-8" y2="-34"/><line x1="8" y1="-44" x2="8" y2="-34"/><line x1="22" y1="-44" x2="22" y2="-34"/>
+                <line x1="-22" y1="34" x2="-22" y2="44"/><line x1="-8" y1="34" x2="-8" y2="44"/><line x1="8" y1="34" x2="8" y2="44"/><line x1="22" y1="34" x2="22" y2="44"/>
+                <line x1="-44" y1="-22" x2="-34" y2="-22"/><line x1="-44" y1="-8" x2="-34" y2="-8"/><line x1="-44" y1="8" x2="-34" y2="8"/><line x1="-44" y1="22" x2="-34" y2="22"/>
+                <line x1="34" y1="-22" x2="44" y2="-22"/><line x1="34" y1="-8" x2="44" y2="-8"/><line x1="34" y1="8" x2="44" y2="8"/><line x1="34" y1="22" x2="44" y2="22"/>
+              </g>
+              <rect x="-34" y="-34" width="68" height="68" rx="7" fill="#1E293B" stroke="#38BDF8" stroke-width="2.8"/>
+              <rect x="-22" y="-22" width="44" height="44" rx="4" fill="#0F172A" stroke="#7DD3FC" stroke-width="1.6"/>
+              <path d="M-28,-28 L-4,-6 L6,-12 L28,28" fill="none" stroke="#EF4444" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="0" y="7" text-anchor="middle" fill="#FFFFFF" font-size="20" font-weight="900">AI</text>
+            </g>
+
+            <!-- Bottom Left: Gold Bitcoin Coin & $61.4K -->
+            <g transform="translate(56, 166)">
+              <circle cx="-26" cy="0" r="21" fill="#F59E0B" stroke="#FEF08A" stroke-width="2.2"/>
+              <text x="-26" y="8" text-anchor="middle" fill="#FFFFFF" font-size="21" font-weight="900">₿</text>
+              <text x="20" y="-4" text-anchor="middle" fill="#FEF08A" font-size="14" font-weight="900">$61.4K</text>
+              <path d="M20,3 L20,21 M12,13 L20,22 L28,13" fill="none" stroke="#EF4444" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+
+            <!-- Right: Red Crash Trendline & 3 Luminous Crimson Index Bars (15.5px Bold White Labels) -->
+            <path d="M120,16 L162,32 L206,24 L254,68 L296,114" fill="none" stroke="#EF4444" stroke-width="3.5" stroke-linecap="round"/>
+            <polygon points="302,120 287,116 298,104" fill="#EF4444"/>
+
+            <!-- Bar 1: TAIEX -6.2% -->
+            <rect x="118" y="24" width="184" height="42" rx="4" fill="#DC2626" stroke="#FCA5A5" stroke-width="1.5"/>
+            <text x="128" y="51" fill="#FFFFFF" font-size="15.5" font-weight="900">TAIEX</text>
+            <text x="292" y="51" text-anchor="end" fill="#FEF08A" font-size="17.5" font-weight="900">-6.2%</text>
+
+            <!-- Bar 2: KOSPI -5.2% -->
+            <rect x="118" y="84" width="160" height="42" rx="4" fill="#E11D48" stroke="#FDA4AF" stroke-width="1.5"/>
+            <text x="128" y="111" fill="#FFFFFF" font-size="15.5" font-weight="900">KOSPI</text>
+            <text x="268" y="111" text-anchor="end" fill="#FFFFFF" font-size="17" font-weight="900">-5.2%</text>
+
+            <!-- Bar 3: NIKKEI -5.1% -->
+            <rect x="118" y="144" width="156" height="42" rx="4" fill="#F43F5E" stroke="#FECDD3" stroke-width="1.5"/>
+            <text x="128" y="171" fill="#FFFFFF" font-size="15.5" font-weight="900">NIKKEI</text>
+            <text x="264" y="171" text-anchor="end" fill="#FFFFFF" font-size="17" font-weight="900">-5.1%</text>
+          </svg>
+        </div>
+        <div class="short-label"><span class="accent">Taipei -6.2%</span> · Seoul -5.2% · Tokyo -5.1%</div>
       </article>
     </section>
 
-    <!-- TIER B: SECOND ILLUSTRATED ROW (3 EQUAL COLUMNS) -->
-    <section class="tier-b">
-      <!-- STORY 4: COP31 DEADLOCK IN ANTALYA -->
-      <article class="story">
-        <div class="story-kicker" style="border-top-color:#0F766E;">
-          <span class="kicker-left" style="color:#0F766E;">WORLD · CLIMATE</span>
-          <span class="kicker-loc">ANTALYA, TÜRKIYE</span>
+    <!-- ROW 2 -->
+    <section class="grid-row">
+      <!-- PANEL 4: EUROPE · DIPLOMACY -->
+      <article class="panel">
+        <div class="panel-kicker" style="border-top-color:#1D4ED8;">
+          <span class="kicker-beat" style="color:#1D4ED8;">EUROPE · DIPLOMACY</span>
+          <span class="kicker-loc">BRUSSELS</span>
+        </div>
+        <h2 class="headline">UK &amp; EU Seal 'Reset' Deal</h2>
+        <div class="art-frame">
+          <svg viewBox="0 0 316 212" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <clipPath id="uk-p4-clip">
+                <circle cx="0" cy="0" r="39"/>
+              </clipPath>
+              <linearGradient id="channel-sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#DBEAFE"/>
+                <stop offset="100%" stop-color="#EFF6FF"/>
+              </linearGradient>
+            </defs>
+            <rect width="316" height="212" fill="url(#channel-sky)"/>
+            <!-- Subtle Westminster Big Ben silhouette on left bank & Brussels skyline on right bank -->
+            <path d="M0,130 L12,130 L12,68 L18,48 L24,68 L24,104 L42,104 L42,130 Z" fill="#BFDBFE"/>
+            <path d="M274,130 L274,98 L292,98 L292,72 L306,72 L306,130 L316,130 Z" fill="#BFDBFE"/>
+            <!-- Blue English Channel waters -->
+            <path d="M0,180 Q79,172 158,180 T316,180 L316,212 L0,212 Z" fill="#93C5FD"/>
+
+            <!-- Grand Golden Stone Arch Bridge -->
+            <path d="M22,120 Q158,38 294,120" fill="none" stroke="#B45309" stroke-width="13" stroke-linecap="round"/>
+            <path d="M22,120 Q158,38 294,120" fill="none" stroke="#FACC15" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="158" cy="70" r="19" fill="#0F172A" stroke="#FACC15" stroke-width="3.5"/>
+            <path d="M147,70 L169,70 M153,63 L163,63 M153,77 L163,77" stroke="#FEF08A" stroke-width="2.8" stroke-linecap="round"/>
+
+            <!-- Left: Clipped Union Jack Roundel -->
+            <g transform="translate(76, 62)">
+              <g clip-path="url(#uk-p4-clip)">
+                <rect x="-40" y="-40" width="80" height="80" fill="#1E3A8A"/>
+                <path d="M-40,-40 L40,40 M-40,40 L40,-40" stroke="#FFFFFF" stroke-width="11"/>
+                <path d="M-40,-40 L40,40 M-40,40 L40,-40" stroke="#DC2626" stroke-width="5.5"/>
+                <path d="M-40,0 L40,0 M0,-40 L0,40" stroke="#FFFFFF" stroke-width="16"/>
+                <path d="M-40,0 L40,0 M0,-40 L0,40" stroke="#DC2626" stroke-width="9"/>
+              </g>
+              <circle cx="0" cy="0" r="39" fill="none" stroke="#0F172A" stroke-width="3.8"/>
+            </g>
+
+            <!-- Right: EU 12-Gold-Star Roundel -->
+            <g transform="translate(240, 62)">
+              <circle cx="0" cy="0" r="39" fill="#1D4ED8" stroke="#FACC15" stroke-width="3.8"/>
+              <circle cx="0" cy="-25" r="3.3" fill="#FACC15"/>
+              <circle cx="12.5" cy="-21.6" r="3.3" fill="#FACC15"/>
+              <circle cx="21.6" cy="-12.5" r="3.3" fill="#FACC15"/>
+              <circle cx="25" cy="0" r="3.3" fill="#FACC15"/>
+              <circle cx="21.6" cy="12.5" r="3.3" fill="#FACC15"/>
+              <circle cx="12.5" cy="21.6" r="3.3" fill="#FACC15"/>
+              <circle cx="0" cy="25" r="3.3" fill="#FACC15"/>
+              <circle cx="-12.5" cy="21.6" r="3.3" fill="#FACC15"/>
+              <circle cx="-21.6" cy="12.5" r="3.3" fill="#FACC15"/>
+              <circle cx="-25" cy="0" r="3.3" fill="#FACC15"/>
+              <circle cx="-21.6" cy="-12.5" r="3.3" fill="#FACC15"/>
+              <circle cx="-12.5" cy="-21.6" r="3.3" fill="#FACC15"/>
+            </g>
+
+            <!-- 3 Large Clean Illustrated Medallions Below (Passport, Wheat Sheaf, Carbon Leaf) -->
+            <!-- 1. Passport -->
+            <g transform="translate(64, 158)">
+              <circle cx="0" cy="0" r="34" fill="#FFFFFF" stroke="#1D4ED8" stroke-width="3.5"/>
+              <rect x="-15" y="-20" width="30" height="40" rx="3.5" fill="#1E3A8A" stroke="#93C5FD" stroke-width="1.5"/>
+              <circle cx="0" cy="-4" r="8" fill="none" stroke="#FACC15" stroke-width="2.2"/>
+              <line x1="-8" y1="11" x2="8" y2="11" stroke="#FACC15" stroke-width="2.5"/>
+            </g>
+
+            <!-- 2. Golden Wheat Sheaf -->
+            <g transform="translate(158, 158)">
+              <circle cx="0" cy="0" r="34" fill="#FFFFFF" stroke="#047857" stroke-width="3.5"/>
+              <line x1="0" y1="22" x2="0" y2="-20" stroke="#D97706" stroke-width="3.5" stroke-linecap="round"/>
+              <ellipse cx="-8" cy="-12" rx="6.5" ry="3.5" transform="rotate(-30 -8 -12)" fill="#F59E0B"/>
+              <ellipse cx="8" cy="-12" rx="6.5" ry="3.5" transform="rotate(30 8 -12)" fill="#F59E0B"/>
+              <ellipse cx="-8" cy="-1" rx="6.5" ry="3.5" transform="rotate(-30 -8 -1)" fill="#F59E0B"/>
+              <ellipse cx="8" cy="-1" rx="6.5" ry="3.5" transform="rotate(30 8 -1)" fill="#F59E0B"/>
+              <ellipse cx="-7" cy="10" rx="6" ry="3.2" transform="rotate(-30 -7 10)" fill="#F59E0B"/>
+              <ellipse cx="7" cy="10" rx="6" ry="3.2" transform="rotate(30 7 10)" fill="#F59E0B"/>
+            </g>
+
+            <!-- 3. Green Carbon Leaf -->
+            <g transform="translate(252, 158)">
+              <circle cx="0" cy="0" r="34" fill="#FFFFFF" stroke="#B45309" stroke-width="3.5"/>
+              <circle cx="0" cy="0" r="23" fill="none" stroke="#16A34A" stroke-width="3" stroke-dasharray="22,7"/>
+              <path d="M-12,12 C-12,-10 12,-15 15,-15 C15,-15 12,12 -12,12 Z" fill="#16A34A"/>
+              <path d="M-12,12 L5,-5" stroke="#DCFCE7" stroke-width="2.5" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </div>
+        <div class="short-label">Youth Visas · Food Trade · Carbon Link</div>
+      </article>
+
+      <!-- PANEL 5: WORLD · CLIMATE — TÜRKIYE -->
+      <article class="panel">
+        <div class="panel-kicker" style="border-top-color:#0F766E;">
+          <span class="kicker-beat" style="color:#0F766E;">WORLD · CLIMATE</span>
+          <span class="kicker-loc">TÜRKIYE</span>
         </div>
         <h2 class="headline">COP31 Stalls on Final Day</h2>
         <div class="art-frame">
-          <svg viewBox="0 0 314 146" xmlns="http://www.w3.org/2000/svg">
-            <rect width="314" height="146" fill="#F0FDFA"/>
-            <!-- Center Fulcrum: Detailed Earth Globe -->
-            <g transform="translate(157, 92)">
-              <circle cx="0" cy="0" r="38" fill="#0284C7" stroke="#0F172A" stroke-width="2.5"/>
-              <ellipse cx="0" cy="0" rx="20" ry="38" fill="none" stroke="#7DD3FC" stroke-width="1" opacity="0.75"/>
-              <line x1="-38" y1="0" x2="38" y2="0" stroke="#7DD3FC" stroke-width="1" opacity="0.75"/>
-              <line x1="-32" y1="-19" x2="32" y2="-19" stroke="#7DD3FC" stroke-width="1" opacity="0.75"/>
-              <line x1="-32" y1="19" x2="32" y2="19" stroke="#7DD3FC" stroke-width="1" opacity="0.75"/>
-              <path d="M-20,-20 Q-5,-27 5,-14 Q16,-5 4,18 Q-12,23 -22,4 Z" fill="#16A34A"/>
-              <path d="M13,-20 Q29,-11 25,7 Q16,14 13,-2 Z" fill="#16A34A"/>
-              <circle cx="0" cy="0" r="43" fill="none" stroke="#EF4444" stroke-width="2.5" stroke-dasharray="6,4"/>
+          <svg viewBox="0 0 316 212" xmlns="http://www.w3.org/2000/svg">
+            <rect width="316" height="212" fill="#F0FDFA"/>
+            <!-- Center Fulcrum: Shaded Earth Globe Encircled by Olive Branches -->
+            <g transform="translate(158, 134)">
+              <circle cx="0" cy="0" r="50" fill="#0284C7" stroke="#0F172A" stroke-width="3"/>
+              <ellipse cx="0" cy="0" rx="26" ry="50" fill="none" stroke="#7DD3FC" stroke-width="1.3" opacity="0.75"/>
+              <line x1="-50" y1="0" x2="50" y2="0" stroke="#7DD3FC" stroke-width="1.3" opacity="0.75"/>
+              <line x1="-43" y1="-25" x2="43" y2="-25" stroke="#7DD3FC" stroke-width="1.3" opacity="0.75"/>
+              <line x1="-43" y1="25" x2="43" y2="25" stroke="#7DD3FC" stroke-width="1.3" opacity="0.75"/>
+              <path d="M-26,-26 Q-7,-35 7,-19 Q22,-7 5,24 Q-16,30 -28,5 Z" fill="#16A34A"/>
+              <path d="M16,-26 Q38,-14 33,10 Q22,19 16,-2 Z" fill="#16A34A"/>
+              <circle cx="0" cy="0" r="56" fill="none" stroke="#EF4444" stroke-width="3" stroke-dasharray="7,5"/>
             </g>
 
-            <!-- Top Center: Wooden Gavel & Overtime Hourglass -->
-            <g transform="translate(157, 26)">
-              <polygon points="-26,-14 -8,-14 -17,-1 -8,11 -26,11 -17,-1" fill="#FEF08A" stroke="#0F172A" stroke-width="1.8" stroke-linejoin="round"/>
-              <line x1="-29" y1="-14" x2="-5" y2="-14" stroke="#78350F" stroke-width="2.8" stroke-linecap="round"/>
-              <line x1="-29" y1="11" x2="-5" y2="11" stroke="#78350F" stroke-width="2.8" stroke-linecap="round"/>
-              <line x1="-2" y1="0" x2="28" y2="-7" stroke="#78350F" stroke-width="5" stroke-linecap="round"/>
-              <rect x="18" y="-18" width="14" height="22" rx="2.5" transform="rotate(-14 25 -7)" fill="#B45309" stroke="#451A03" stroke-width="1.8"/>
+            <!-- Top Center: 11:59 Overtime Clock / Hourglass & Wooden Gavel -->
+            <g transform="translate(158, 36)">
+              <rect x="-54" y="-20" width="54" height="30" rx="4" fill="#0F172A" stroke="#EF4444" stroke-width="2"/>
+              <text x="-27" y="1" text-anchor="middle" fill="#FEF08A" font-size="15.5" font-weight="900">11:59</text>
+              <line x1="6" y1="2" x2="42" y2="-8" stroke="#78350F" stroke-width="6" stroke-linecap="round"/>
+              <rect x="30" y="-22" width="16" height="26" rx="3" transform="rotate(-14 38 -9)" fill="#B45309" stroke="#451A03" stroke-width="2.2"/>
             </g>
 
-            <!-- Brass Balance Scale Beam & Chains -->
-            <line x1="48" y1="54" x2="266" y2="74" stroke="#0F172A" stroke-width="5.5" stroke-linecap="round"/>
-            <line x1="48" y1="54" x2="266" y2="74" stroke="#F59E0B" stroke-width="2.2" stroke-linecap="round"/>
-            <line x1="34" y1="108" x2="52" y2="55" stroke="#475569" stroke-width="1.8"/>
-            <line x1="74" y1="108" x2="52" y2="55" stroke="#475569" stroke-width="1.8"/>
-            <line x1="240" y1="124" x2="260" y2="73" stroke="#475569" stroke-width="1.8"/>
-            <line x1="284" y1="124" x2="260" y2="73" stroke="#475569" stroke-width="1.8"/>
+            <!-- Heavy Brass Balance Beam & Suspension Chains -->
+            <line x1="48" y1="78" x2="268" y2="104" stroke="#0F172A" stroke-width="7" stroke-linecap="round"/>
+            <line x1="48" y1="78" x2="268" y2="104" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+            <line x1="34" y1="152" x2="52" y2="79" stroke="#475569" stroke-width="2.2"/>
+            <line x1="76" y1="152" x2="52" y2="79" stroke="#475569" stroke-width="2.2"/>
+            <line x1="238" y1="176" x2="262" y2="103" stroke="#475569" stroke-width="2.2"/>
+            <line x1="284" y1="176" x2="262" y2="103" stroke="#475569" stroke-width="2.2"/>
 
-            <!-- Left Pan: Smoky Factory Chimneys & Black Oil Drum -->
-            <g transform="translate(8, 108)">
-              <path d="M2,0 L94,0 L84,11 L12,11 Z" fill="#D97706" stroke="#78350F" stroke-width="1.8"/>
-              <circle cx="24" cy="-50" r="7.5" fill="#64748B"/>
-              <circle cx="34" cy="-56" r="9.5" fill="#475569"/>
-              <circle cx="48" cy="-48" r="7" fill="#64748B"/>
-              <polygon points="16,0 20,-38 32,-38 36,0" fill="#334155" stroke="#0F172A" stroke-width="1.5"/>
-              <rect x="19" y="-33" width="14" height="4.5" fill="#DC2626"/>
-              <polygon points="38,0 42,-33 54,-33 58,0" fill="#334155" stroke="#0F172A" stroke-width="1.5"/>
-              <rect x="41" y="-28" width="14" height="4.5" fill="#DC2626"/>
-              <rect x="62" y="-29" width="24" height="29" rx="3" fill="#0F172A" stroke="#EF4444" stroke-width="1.8"/>
-              <line x1="62" y1="-19" x2="86" y2="-19" stroke="#EF4444" stroke-width="1.8"/>
-              <line x1="62" y1="-9" x2="86" y2="-9" stroke="#EF4444" stroke-width="1.8"/>
+            <!-- Left Pan: Industrial Smokestacks & Black Oil Barrel -->
+            <g transform="translate(8, 152)">
+              <path d="M2,0 L96,0 L86,14 L12,14 Z" fill="#D97706" stroke="#78350F" stroke-width="2.2"/>
+              <circle cx="24" cy="-64" r="9.5" fill="#64748B"/>
+              <circle cx="36" cy="-72" r="12" fill="#475569"/>
+              <circle cx="50" cy="-62" r="9" fill="#64748B"/>
+              <polygon points="14,0 19,-50 33,-50 38,0" fill="#334155" stroke="#0F172A" stroke-width="1.8"/>
+              <rect x="18" y="-43" width="16" height="6" fill="#DC2626"/>
+              <polygon points="39,0 43,-44 57,-44 61,0" fill="#334155" stroke="#0F172A" stroke-width="1.8"/>
+              <rect x="42" y="-37" width="16" height="6" fill="#DC2626"/>
+              <rect x="64" y="-38" width="26" height="38" rx="3.5" fill="#0F172A" stroke="#EF4444" stroke-width="2.2"/>
+              <line x1="64" y1="-25" x2="90" y2="-25" stroke="#EF4444" stroke-width="2.2"/>
+              <line x1="64" y1="-12" x2="90" y2="-12" stroke="#EF4444" stroke-width="2.2"/>
             </g>
 
-            <!-- Right Pan: Solar Array, Wind Turbine & Gold $ Coin Stack -->
-            <g transform="translate(210, 124)">
-              <path d="M2,0 L94,0 L84,11 L12,11 Z" fill="#D97706" stroke="#78350F" stroke-width="1.8"/>
-              <polygon points="8,0 18,-26 48,-26 40,0" fill="#0284C7" stroke="#E0F2FE" stroke-width="1.8"/>
-              <line x1="28" y1="-26" x2="22" y2="0" stroke="#7DD3FC" stroke-width="1.1"/>
-              <line x1="38" y1="-26" x2="32" y2="0" stroke="#7DD3FC" stroke-width="1.1"/>
-              <line x1="13" y1="-13" x2="44" y2="-13" stroke="#7DD3FC" stroke-width="1.1"/>
-              <line x1="54" y1="-40" x2="54" y2="0" stroke="#0F172A" stroke-width="2.8"/>
-              <path d="M54,-40 L41,-51 M54,-40 L69,-47 M54,-40 L56,-25" stroke="#0F766E" stroke-width="2.8" stroke-linecap="round"/>
-              <circle cx="54" cy="-40" r="2.8" fill="#FACC15"/>
-              <circle cx="76" cy="-15" r="14" fill="#FACC15" stroke="#B45309" stroke-width="2"/>
-              <text x="76" y="-9" text-anchor="middle" fill="#78350F" font-size="17" font-weight="900">$</text>
+            <!-- Right Pan: Sunlit Blue Solar Panel, White Wind Turbine & Gold $ Coin Stack -->
+            <g transform="translate(212, 176)">
+              <path d="M2,0 L96,0 L86,14 L12,14 Z" fill="#D97706" stroke="#78350F" stroke-width="2.2"/>
+              <polygon points="6,0 18,-34 50,-34 40,0" fill="#0284C7" stroke="#E0F2FE" stroke-width="2.2"/>
+              <line x1="29" y1="-34" x2="21" y2="0" stroke="#7DD3FC" stroke-width="1.4"/>
+              <line x1="40" y1="-34" x2="32" y2="0" stroke="#7DD3FC" stroke-width="1.4"/>
+              <line x1="12" y1="-17" x2="45" y2="-17" stroke="#7DD3FC" stroke-width="1.4"/>
+              <line x1="56" y1="-54" x2="56" y2="0" stroke="#0F172A" stroke-width="3.5"/>
+              <path d="M56,-54 L40,-68 M56,-54 L74,-63 M56,-54 L58,-34" stroke="#0F766E" stroke-width="3.5" stroke-linecap="round"/>
+              <circle cx="56" cy="-54" r="3.5" fill="#FACC15"/>
+              <circle cx="78" cy="-20" r="18" fill="#FACC15" stroke="#B45309" stroke-width="2.5"/>
+              <text x="78" y="-13" text-anchor="middle" fill="#78350F" font-size="21" font-weight="900">$</text>
             </g>
           </svg>
         </div>
-        <p class="caption">Closing day in Türkiye goes to overtime as nations clash over <strong>fossil-fuel phaseout</strong> &amp; <strong>transition finance</strong>.</p>
+        <div class="short-label"><span class="accent">Antalya Deadlock</span> · Fossil Fuels vs. Finance</div>
       </article>
 
-      <!-- STORY 5: UK & EU RESET PACT -->
-      <article class="story">
-        <div class="story-kicker" style="border-top-color:#1D4ED8;">
-          <span class="kicker-left" style="color:#1D4ED8;">EUROPE · DIPLOMACY</span>
-          <span class="kicker-loc">BRUSSELS &amp; LONDON</span>
+      <!-- PANEL 6: MIDDLE EAST · SECURITY -->
+      <article class="panel">
+        <div class="panel-kicker" style="border-top-color:#991B1B;">
+          <span class="kicker-beat" style="color:#991B1B;">MIDDLE EAST · SECURITY</span>
+          <span class="kicker-loc">OMAN</span>
         </div>
-        <h2 class="headline">UK &amp; EU Seal 'Reset' Pact</h2>
+        <h2 class="headline">Hormuz Tanker Set Ablaze</h2>
         <div class="art-frame">
-          <svg viewBox="0 0 314 146" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <clipPath id="uk-roundel-clip">
-                <circle cx="0" cy="0" r="32"/>
-              </clipPath>
-            </defs>
-            <rect width="314" height="146" fill="#EFF6FF"/>
-            <path d="M0,126 Q78,120 157,126 T314,126 L314,146 L0,146 Z" fill="#DBEAFE"/>
+          <svg viewBox="0 0 316 212" xmlns="http://www.w3.org/2000/svg">
+            <!-- Left 62%: Strait of Hormuz Headlands & Burning Supertanker -->
+            <rect x="0" y="0" width="200" height="212" fill="#0369A1"/>
+            <path d="M0,58 Q100,70 200,58 L200,212 L0,212 Z" fill="#075985"/>
+            <!-- Rugged Iranian northern coastline -->
+            <path d="M0,0 L200,0 L200,44 L164,34 L130,28 L98,44 L58,38 L28,28 L0,40 Z" fill="#D6D3D1" stroke="#57534E" stroke-width="2.2"/>
+            <!-- Rugged ochre Musandam Peninsula (Khasab, Oman) -->
+            <path d="M14,212 L68,176 L104,136 L120,126 L134,136 L154,178 L188,212 Z" fill="#FDE68A" stroke="#B45309" stroke-width="2.5"/>
+            <circle cx="118" cy="148" r="6" fill="#DC2626" stroke="#FFFFFF" stroke-width="2"/>
 
-            <!-- Stone Channel Arch Bridge -->
-            <path d="M24,86 Q157,24 290,86" fill="none" stroke="#B45309" stroke-width="10" stroke-linecap="round"/>
-            <path d="M24,86 Q157,24 290,86" fill="none" stroke="#FACC15" stroke-width="4.5" stroke-linecap="round"/>
-            <circle cx="157" cy="48" r="15" fill="#0F172A" stroke="#FACC15" stroke-width="2.8"/>
-            <path d="M148,48 L166,48 M153,43 L161,43 M153,53 L161,53" stroke="#FEF08A" stroke-width="2.2" stroke-linecap="round"/>
-
-            <!-- Left: Clipped Union Jack Roundel -->
-            <g transform="translate(76, 44)">
-              <g clip-path="url(#uk-roundel-clip)">
-                <rect x="-34" y="-34" width="68" height="68" fill="#1E3A8A"/>
-                <path d="M-34,-34 L34,34 M-34,34 L34,-34" stroke="#FFFFFF" stroke-width="9.5"/>
-                <path d="M-34,-34 L34,34 M-34,34 L34,-34" stroke="#DC2626" stroke-width="4.8"/>
-                <path d="M-34,0 L34,0 M0,-34 L0,34" stroke="#FFFFFF" stroke-width="13"/>
-                <path d="M-34,0 L34,0 M0,-34 L0,34" stroke="#DC2626" stroke-width="7.5"/>
-              </g>
-              <circle cx="0" cy="0" r="32" fill="none" stroke="#0F172A" stroke-width="3.2"/>
+            <!-- Dark Oil Supertanker Silhouette on Water with Roaring Orange Flames & Towering Smoke -->
+            <g transform="translate(32, 84)">
+              <path d="M56,16 C40,-20 70,-42 52,-76 C80,-58 96,-20 76,16 Z" fill="#1E293B" opacity="0.92"/>
+              <circle cx="64" cy="-24" r="16" fill="#334155"/>
+              <polygon points="0,24 122,24 108,44 14,44" fill="#1E293B" stroke="#E2E8F0" stroke-width="2"/>
+              <rect x="18" y="14" width="14" height="10" fill="#64748B"/>
+              <rect x="86" y="4" width="18" height="20" fill="#F8FAFC" stroke="#475569" stroke-width="1.5"/>
+              <circle cx="56" cy="12" r="23" fill="#DC2626" opacity="0.92"/>
+              <polygon points="56,-19 64,-1 82,-4 69,12 80,27 56,22 36,27 44,12 31,-4 48,-1" fill="#F97316"/>
+              <circle cx="56" cy="12" r="9.5" fill="#FEF08A"/>
             </g>
 
-            <!-- Right: 12-Star EU Roundel -->
-            <g transform="translate(238, 44)">
-              <circle cx="0" cy="0" r="32" fill="#1D4ED8" stroke="#FACC15" stroke-width="3.2"/>
-              <circle cx="0" cy="-20" r="2.8" fill="#FACC15"/>
-              <circle cx="10" cy="-17.3" r="2.8" fill="#FACC15"/>
-              <circle cx="17.3" cy="-10" r="2.8" fill="#FACC15"/>
-              <circle cx="20" cy="0" r="2.8" fill="#FACC15"/>
-              <circle cx="17.3" cy="10" r="2.8" fill="#FACC15"/>
-              <circle cx="10" cy="17.3" r="2.8" fill="#FACC15"/>
-              <circle cx="0" cy="20" r="2.8" fill="#FACC15"/>
-              <circle cx="-10" cy="17.3" r="2.8" fill="#FACC15"/>
-              <circle cx="-17.3" cy="10" r="2.8" fill="#FACC15"/>
-              <circle cx="-20" cy="0" r="2.8" fill="#FACC15"/>
-              <circle cx="-17.3" cy="-10" r="2.8" fill="#FACC15"/>
-              <circle cx="-10" cy="-17.3" r="2.8" fill="#FACC15"/>
-            </g>
+            <line x1="200" y1="0" x2="200" y2="212" stroke="#0F172A" stroke-width="3"/>
 
-            <!-- 3 Clean Illustrated Emblems Underneath Bridge -->
-            <!-- 1. Blue Youth Visa Passport -->
-            <g transform="translate(64, 112)">
-              <circle cx="0" cy="0" r="25" fill="#FFFFFF" stroke="#1D4ED8" stroke-width="2.8"/>
-              <rect x="-11" y="-15" width="22" height="30" rx="2.5" fill="#1E3A8A" stroke="#93C5FD" stroke-width="1.2"/>
-              <circle cx="0" cy="-3" r="6" fill="none" stroke="#FACC15" stroke-width="1.6"/>
-              <line x1="-6" y1="8" x2="6" y2="8" stroke="#FACC15" stroke-width="1.8"/>
-            </g>
+            <!-- Right 38%: Smoky Horizon & Crisp White UN Humanitarian Relief Tent Emblem -->
+            <rect x="201" y="0" width="115" height="212" fill="#1E293B"/>
+            <path d="M201,124 Q230,106 260,118 T316,112 L316,212 L201,212 Z" fill="#334155"/>
+            <circle cx="234" cy="48" r="22" fill="#475569" opacity="0.6"/>
+            <circle cx="258" cy="38" r="26" fill="#475569" opacity="0.5"/>
 
-            <!-- 2. Golden Agrifood Wheat -->
-            <g transform="translate(157, 112)">
-              <circle cx="0" cy="0" r="25" fill="#FFFFFF" stroke="#047857" stroke-width="2.8"/>
-              <line x1="0" y1="16" x2="0" y2="-14" stroke="#D97706" stroke-width="2.8" stroke-linecap="round"/>
-              <ellipse cx="-6" cy="-9" rx="5" ry="2.8" transform="rotate(-30 -6 -9)" fill="#F59E0B"/>
-              <ellipse cx="6" cy="-9" rx="5" ry="2.8" transform="rotate(30 6 -9)" fill="#F59E0B"/>
-              <ellipse cx="-6" cy="-1" rx="5" ry="2.8" transform="rotate(-30 -6 -1)" fill="#F59E0B"/>
-              <ellipse cx="6" cy="-1" rx="5" ry="2.8" transform="rotate(30 6 -1)" fill="#F59E0B"/>
-              <ellipse cx="-5" cy="7" rx="4.5" ry="2.5" transform="rotate(-30 -5 7)" fill="#F59E0B"/>
-              <ellipse cx="5" cy="7" rx="4.5" ry="2.5" transform="rotate(30 5 7)" fill="#F59E0B"/>
-            </g>
-
-            <!-- 3. Green Carbon ETS Leaf -->
-            <g transform="translate(250, 112)">
-              <circle cx="0" cy="0" r="25" fill="#FFFFFF" stroke="#B45309" stroke-width="2.8"/>
-              <circle cx="0" cy="0" r="17" fill="none" stroke="#16A34A" stroke-width="2.2" stroke-dasharray="16,5"/>
-              <path d="M-9,9 C-9,-7 9,-11 11,-11 C11,-11 9,9 -9,9 Z" fill="#16A34A"/>
-              <path d="M-9,9 L4,-4" stroke="#DCFCE7" stroke-width="1.8" stroke-linecap="round"/>
+            <g transform="translate(258, 114)">
+              <circle cx="0" cy="0" r="45" fill="#0284C7" stroke="#FFFFFF" stroke-width="3.5"/>
+              <polygon points="0,-28 -30,14 30,14" fill="#FFFFFF" stroke="#0F172A" stroke-width="2" stroke-linejoin="round"/>
+              <polygon points="0,-7 -9,14 9,14" fill="#0369A1"/>
+              <path d="M0,-21 L0,-11 M-5,-16 L5,-16" stroke="#DC2626" stroke-width="3.5" stroke-linecap="round"/>
+              <path d="M-27,21 Q0,37 27,21" fill="none" stroke="#FEF08A" stroke-width="3.5" stroke-linecap="round"/>
             </g>
           </svg>
         </div>
-        <p class="caption">London &amp; Brussels agree timelines on <strong>youth visas</strong>, <strong>food trade checks</strong> &amp; <strong>carbon-market link</strong>.</p>
-      </article>
-
-      <!-- STORY 6: MIDDLE EAST SECURITY -->
-      <article class="story">
-        <div class="story-kicker" style="border-top-color:#991B1B;">
-          <span class="kicker-left" style="color:#991B1B;">MIDDLE EAST · SECURITY</span>
-          <span class="kicker-loc">HORMUZ · LEBANON</span>
-        </div>
-        <h2 class="headline">Oman Tanker Fire &amp; UN Alert</h2>
-        <div class="art-frame">
-          <svg viewBox="0 0 314 146" xmlns="http://www.w3.org/2000/svg">
-            <rect x="0" y="0" width="200" height="146" fill="#0369A1"/>
-            <path d="M0,40 Q100,48 200,40 L200,146 L0,146 Z" fill="#075985"/>
-            <!-- Northern sandy headland -->
-            <path d="M0,0 L200,0 L200,32 L162,24 L130,20 L98,32 L58,28 L28,20 L0,30 Z" fill="#E7E5E4" stroke="#78716C" stroke-width="1.8"/>
-            <!-- Southern Khasab / Musandam Peninsula -->
-            <path d="M16,146 L68,122 L102,94 L118,86 L130,94 L148,124 L184,146 Z" fill="#FDE68A" stroke="#B45309" stroke-width="2"/>
-            <circle cx="116" cy="102" r="4.5" fill="#DC2626" stroke="#FFFFFF" stroke-width="1.6"/>
-
-            <!-- Oil Supertanker Silhouette Ablaze in Strait of Hormuz -->
-            <g transform="translate(36, 56)">
-              <path d="M52,12 C38,-12 64,-28 48,-50 C72,-38 86,-12 70,12 Z" fill="#1E293B" opacity="0.9"/>
-              <circle cx="58" cy="-16" r="12" fill="#334155"/>
-              <polygon points="0,18 112,18 100,32 12,32" fill="#1E293B" stroke="#E2E8F0" stroke-width="1.6"/>
-              <rect x="16" y="10" width="12" height="8" fill="#64748B"/>
-              <rect x="80" y="3" width="16" height="15" fill="#F8FAFC" stroke="#475569" stroke-width="1.2"/>
-              <circle cx="52" cy="9" r="17" fill="#DC2626" opacity="0.9"/>
-              <polygon points="52,-14 59,-1 74,-3 63,9 72,20 52,16 35,20 42,9 31,-3 45,-1" fill="#F97316"/>
-              <circle cx="52" cy="9" r="7" fill="#FEF08A"/>
-            </g>
-
-            <line x1="200" y1="0" x2="200" y2="146" stroke="#111827" stroke-width="2.5"/>
-
-            <!-- Right: Smoky Levant Horizon & Crisp White UN Relief Tent Emblem -->
-            <rect x="201" y="0" width="113" height="146" fill="#1E293B"/>
-            <path d="M201,86 Q230,72 258,82 T314,78 L314,146 L201,146 Z" fill="#334155"/>
-            <circle cx="232" cy="34" r="16" fill="#475569" opacity="0.6"/>
-            <circle cx="252" cy="28" r="20" fill="#475569" opacity="0.5"/>
-
-            <g transform="translate(257, 76)">
-              <circle cx="0" cy="0" r="37" fill="#0284C7" stroke="#FFFFFF" stroke-width="2.8"/>
-              <polygon points="0,-22 -24,11 24,11" fill="#FFFFFF" stroke="#0F172A" stroke-width="1.6" stroke-linejoin="round"/>
-              <polygon points="0,-5 -7,11 7,11" fill="#0369A1"/>
-              <path d="M0,-16 L0,-9 M-3.5,-12.5 L3.5,-12.5" stroke="#DC2626" stroke-width="2.8" stroke-linecap="round"/>
-              <path d="M-22,16 Q0,29 22,16" fill="none" stroke="#FEF08A" stroke-width="2.8" stroke-linecap="round"/>
-            </g>
-          </svg>
-        </div>
-        <p class="caption">Tanker explodes off <strong>Khasab</strong> in Strait of Hormuz; <strong>UN warns</strong> over Gaza &amp; south Lebanon displacement.</p>
+        <div class="short-label"><span class="accent">Blast Off Oman</span> · UN Gaza &amp; Lebanon Alert</div>
       </article>
     </section>
 
-    <!-- TIER C: THIRD ILLUSTRATED ROW (4 COLUMNS, FINELY DRAWN EDITORIAL SCENES) -->
-    <section class="tier-c">
-      <!-- STORY 7: AFRICA (DAKAR PACT & DRC WATER CUT — NO CRUDE POLYGON MAP!) -->
-      <article class="story">
-        <div class="story-kicker" style="border-top-color:#B45309;">
-          <span class="kicker-left" style="color:#B45309;">AFRICA · HUMANITARIAN</span>
-          <span class="kicker-loc">DAKAR &amp; DRC</span>
+    <!-- ROW 3 -->
+    <section class="grid-row" style="border-bottom:none;">
+      <!-- PANEL 7: AFRICA · DIPLOMACY & AID -->
+      <article class="panel">
+        <div class="panel-kicker" style="border-top-color:#B45309;">
+          <span class="kicker-beat" style="color:#B45309;">AFRICA · DIPLOMACY &amp; AID</span>
+          <span class="kicker-loc">DRC</span>
         </div>
         <h2 class="headline">Dakar Pact; DRC Water Cut</h2>
         <div class="art-frame">
-          <svg viewBox="0 0 232 132" xmlns="http://www.w3.org/2000/svg">
-            <!-- Left Half: Dakar 16-State Diplomatic Ring & Clasped Treaty Hands -->
-            <rect x="0" y="0" width="114" height="132" fill="#EFF6FF"/>
-            <g transform="translate(57, 56)">
-              <!-- Outer 16-Star West African Diplomatic Medallion -->
-              <circle cx="0" cy="0" r="40" fill="#1E3A8A" stroke="#F59E0B" stroke-width="2.5"/>
+          <svg viewBox="0 0 316 212" xmlns="http://www.w3.org/2000/svg">
+            <!-- Left Half: Radiant Royal-Blue & Gold 16-Star West African Summit Seal & Clasped Hands -->
+            <rect x="0" y="0" width="156" height="212" fill="#EFF6FF"/>
+            <g transform="translate(78, 92)">
+              <circle cx="0" cy="0" r="58" fill="#1E3A8A" stroke="#F59E0B" stroke-width="3.5"/>
               <!-- 16 Gold Stars Ring -->
-              <circle cx="0" cy="-31" r="2.4" fill="#FACC15"/>
-              <circle cx="11.9" cy="-28.6" r="2.4" fill="#FACC15"/>
-              <circle cx="21.9" cy="-21.9" r="2.4" fill="#FACC15"/>
-              <circle cx="28.6" cy="-11.9" r="2.4" fill="#FACC15"/>
-              <circle cx="31" cy="0" r="2.4" fill="#FACC15"/>
-              <circle cx="28.6" cy="11.9" r="2.4" fill="#FACC15"/>
-              <circle cx="21.9" cy="21.9" r="2.4" fill="#FACC15"/>
-              <circle cx="11.9" cy="28.6" r="2.4" fill="#FACC15"/>
-              <circle cx="0" cy="31" r="2.4" fill="#FACC15"/>
-              <circle cx="-11.9" cy="28.6" r="2.4" fill="#FACC15"/>
-              <circle cx="-21.9" cy="21.9" r="2.4" fill="#FACC15"/>
-              <circle cx="-28.6" cy="11.9" r="2.4" fill="#FACC15"/>
-              <circle cx="-31" cy="0" r="2.4" fill="#FACC15"/>
-              <circle cx="-28.6" cy="-11.9" r="2.4" fill="#FACC15"/>
-              <circle cx="-21.9" cy="-21.9" r="2.4" fill="#FACC15"/>
-              <circle cx="-11.9" cy="-28.6" r="2.4" fill="#FACC15"/>
-              <!-- Clasped Treaty Arch & 16 inside -->
-              <path d="M-20,6 Q0,-12 20,6" fill="none" stroke="#38BDF8" stroke-width="3.5" stroke-linecap="round"/>
-              <text x="0" y="10" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="900">16</text>
+              <circle cx="0" cy="-45" r="3.5" fill="#FACC15"/>
+              <circle cx="17.2" cy="-41.6" r="3.5" fill="#FACC15"/>
+              <circle cx="31.8" cy="-31.8" r="3.5" fill="#FACC15"/>
+              <circle cx="41.6" cy="-17.2" r="3.5" fill="#FACC15"/>
+              <circle cx="45" cy="0" r="3.5" fill="#FACC15"/>
+              <circle cx="41.6" cy="17.2" r="3.5" fill="#FACC15"/>
+              <circle cx="31.8" cy="31.8" r="3.5" fill="#FACC15"/>
+              <circle cx="17.2" cy="41.6" r="3.5" fill="#FACC15"/>
+              <circle cx="0" cy="45" r="3.5" fill="#FACC15"/>
+              <circle cx="-17.2" cy="41.6" r="3.5" fill="#FACC15"/>
+              <circle cx="-31.8" cy="31.8" r="3.5" fill="#FACC15"/>
+              <circle cx="-41.6" cy="17.2" r="3.5" fill="#FACC15"/>
+              <circle cx="-45" cy="0" r="3.5" fill="#FACC15"/>
+              <circle cx="-41.6" cy="-17.2" r="3.5" fill="#FACC15"/>
+              <circle cx="-31.8" cy="-31.8" r="3.5" fill="#FACC15"/>
+              <circle cx="-17.2" cy="-41.6" r="3.5" fill="#FACC15"/>
+              <!-- Clasped Treaty Arch & Bold 16 -->
+              <path d="M-28,12 Q0,-16 28,12" fill="none" stroke="#38BDF8" stroke-width="5" stroke-linecap="round"/>
+              <text x="0" y="14" text-anchor="middle" fill="#FFFFFF" font-size="26" font-weight="900">16</text>
             </g>
-            <text x="57" y="118" text-anchor="middle" fill="#1E3A8A" font-size="11" font-weight="900">DAKAR PACT</text>
+            <text x="78" y="186" text-anchor="middle" fill="#1E3A8A" font-size="15.5" font-weight="900">DAKAR PACT</text>
 
-            <line x1="115" y1="0" x2="115" y2="132" stroke="#111827" stroke-width="2"/>
+            <line x1="157" y1="0" x2="157" y2="212" stroke="#0F172A" stroke-width="3"/>
 
-            <!-- Right Half: Urgent Red Humanitarian Vignette — Dry Brass Standpipe Tap, Slashed Drop & Yellow Jerrycan (76K) -->
-            <rect x="116" y="0" width="116" height="132" fill="#FEF2F2"/>
-            <!-- Brass Standpipe & Faucet Spigot -->
-            <path d="M134,104 L134,26 L166,26 L166,38" fill="none" stroke="#B45309" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-            <line x1="154" y1="16" x2="176" y2="16" stroke="#D97706" stroke-width="4" stroke-linecap="round"/>
-            <line x1="165" y1="16" x2="165" y2="26" stroke="#D97706" stroke-width="4"/>
+            <!-- Right Half: Arid Red-Ochre Displaced Camp Scene — Tall Brass Standpipe, Slashed Water Drop & Empty Yellow Jerrycan (76K) -->
+            <rect x="158" y="0" width="158" height="212" fill="#FEF2F2"/>
+            <!-- Tall Brass Standpipe & Spigot -->
+            <path d="M180,158 L180,34 L224,34 L224,52" fill="none" stroke="#B45309" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="208" y1="20" x2="238" y2="20" stroke="#D97706" stroke-width="5.5" stroke-linecap="round"/>
+            <line x1="223" y1="20" x2="223" y2="34" stroke="#D97706" stroke-width="5.5"/>
 
-            <!-- Crossed-Out Water Droplet Below Spigot -->
-            <g transform="translate(166, 62)">
-              <circle cx="0" cy="0" r="20" fill="#991B1B" stroke="#FCA5A5" stroke-width="1.8"/>
-              <path d="M0,-12 C0,-12 -10,0 -10,6 C-10,11.5 -5.5,15.5 0,15.5 C5.5,15.5 10,11.5 10,6 C10,0 0,-12 0,-12 Z" fill="#38BDF8"/>
-              <line x1="-14" y1="13" x2="14" y2="-13" stroke="#EF4444" stroke-width="4" stroke-linecap="round"/>
+            <!-- Slashed Water Droplet Medallion Below Spigot -->
+            <g transform="translate(224, 92)">
+              <circle cx="0" cy="0" r="28" fill="#991B1B" stroke="#FCA5A5" stroke-width="2.5"/>
+              <path d="M0,-17 C0,-17 -14,0 -14,9 C-14,16.7 -7.7,22 0,22 C7.7,22 14,16.7 14,9 C14,0 0,-17 0,-17 Z" fill="#38BDF8"/>
+              <line x1="-20" y1="19" x2="20" y2="-19" stroke="#EF4444" stroke-width="5.5" stroke-linecap="round"/>
             </g>
 
-            <!-- Empty Yellow Water Jerrycan on Right -->
-            <g transform="translate(196, 56)">
-              <rect x="0" y="8" width="24" height="32" rx="3" fill="#FACC15" stroke="#78350F" stroke-width="1.8"/>
-              <rect x="3" y="2" width="7" height="6" fill="#DC2626" stroke="#78350F" stroke-width="1.2"/>
-              <path d="M14,8 L14,3 L22,3 L22,8" fill="none" stroke="#78350F" stroke-width="2"/>
-              <line x1="5" y1="16" x2="19" y2="32" stroke="#B45309" stroke-width="1.8"/>
-              <line x1="19" y1="16" x2="5" y2="32" stroke="#B45309" stroke-width="1.8"/>
+            <!-- Empty Yellow Water Jerrycan -->
+            <g transform="translate(264, 92)">
+              <rect x="0" y="10" width="36" height="48" rx="4" fill="#FACC15" stroke="#78350F" stroke-width="2.5"/>
+              <rect x="4" y="2" width="11" height="8" fill="#DC2626" stroke="#78350F" stroke-width="1.6"/>
+              <path d="M20,10 L20,3 L32,3 L32,10" fill="none" stroke="#78350F" stroke-width="2.5"/>
+              <line x1="7" y1="22" x2="29" y2="46" stroke="#B45309" stroke-width="2.5"/>
+              <line x1="29" y1="22" x2="7" y2="46" stroke="#B45309" stroke-width="2.5"/>
             </g>
-            <text x="174" y="118" text-anchor="middle" fill="#991B1B" font-size="11.5" font-weight="900">DRC 76K DRY</text>
+            <text x="237" y="186" text-anchor="middle" fill="#991B1B" font-size="16" font-weight="900">76K NO WATER</text>
           </svg>
         </div>
-        <p class="caption"><strong>16 West African states</strong> back migration pact; violence cuts water for <strong>76,000 in Ituri, DRC</strong>.</p>
+        <div class="short-label">16-State Migration Deal · <span class="accent">76K Dry in Ituri</span></div>
       </article>
 
-      <!-- STORY 8: AMERICAS PUBLIC HEALTH (CRISP MEDICAL ART — NO CRUDE POLYGON MAP!) -->
-      <article class="story">
-        <div class="story-kicker" style="border-top-color:#BE123C;">
-          <span class="kicker-left" style="color:#BE123C;">AMERICAS · HEALTH</span>
-          <span class="kicker-loc">US · MEX · BOL</span>
+      <!-- PANEL 8: AMERICAS · HEALTH & SUMMIT -->
+      <article class="panel">
+        <div class="panel-kicker" style="border-top-color:#BE123C;">
+          <span class="kicker-beat" style="color:#BE123C;">AMERICAS · HEALTH</span>
+          <span class="kicker-loc">PAHO</span>
         </div>
         <h2 class="headline">Measles-Free Status Lost</h2>
         <div class="art-frame">
-          <svg viewBox="0 0 232 132" xmlns="http://www.w3.org/2000/svg">
-            <rect width="232" height="132" fill="#FFF1F2"/>
-            <!-- Left: Bold Red-and-White PAHO Health Shield, Vaccine Vial & Syringe -->
-            <g transform="translate(46, 54)">
-              <path d="M-30,-36 L30,-36 L30,4 C30,28 0,40 0,40 C0,40 -30,28 -30,4 Z" fill="#DC2626" stroke="#7F1D1D" stroke-width="2.5" stroke-linejoin="round"/>
-              <path d="M-21,-28 L21,-28 L21,2 C21,19 0,28 0,28 C0,28 -21,19 -21,2 Z" fill="#FFFFFF"/>
-              <path d="M0,-17 L0,11 M-14,-3 L14,-3" stroke="#DC2626" stroke-width="7" stroke-linecap="round"/>
-              <!-- Slashed Revocation Bar Across Shield Corner -->
-              <line x1="-26" y1="24" x2="26" y2="-28" stroke="#0F172A" stroke-width="4" stroke-linecap="round"/>
+          <svg viewBox="0 0 316 212" xmlns="http://www.w3.org/2000/svg">
+            <rect width="316" height="212" fill="#FFF1F2"/>
+            <!-- Left: Bold Red-and-White PAHO Health Shield with Diagonal Revocation Slash + Vaccine Syringe -->
+            <g transform="translate(64, 88)">
+              <path d="M-42,-52 L42,-52 L42,6 C42,40 0,58 0,58 C0,58 -42,40 -42,6 Z" fill="#DC2626" stroke="#7F1D1D" stroke-width="3.5" stroke-linejoin="round"/>
+              <path d="M-30,-40 L30,-40 L30,3 C30,28 0,41 0,41 C0,41 -30,28 -30,3 Z" fill="#FFFFFF"/>
+              <path d="M0,-24 L0,16 M-20,-4 L20,-4" stroke="#DC2626" stroke-width="10" stroke-linecap="round"/>
+              <line x1="-38" y1="36" x2="38" y2="-40" stroke="#0F172A" stroke-width="6" stroke-linecap="round"/>
             </g>
 
             <!-- Angled Vaccine Syringe -->
-            <g transform="translate(92, 46) rotate(28)">
-              <rect x="-5" y="-18" width="10" height="28" rx="1.5" fill="#E0F2FE" stroke="#0F172A" stroke-width="1.8"/>
-              <rect x="-5" y="-4" width="10" height="14" fill="#38BDF8"/>
-              <line x1="0" y1="-27" x2="0" y2="-18" stroke="#0F172A" stroke-width="2.2"/>
-              <line x1="-6" y1="-27" x2="6" y2="-27" stroke="#0F172A" stroke-width="2.2"/>
-              <line x1="0" y1="10" x2="0" y2="23" stroke="#475569" stroke-width="2"/>
+            <g transform="translate(128, 72) rotate(28)">
+              <rect x="-7" y="-26" width="14" height="40" rx="2" fill="#E0F2FE" stroke="#0F172A" stroke-width="2.2"/>
+              <rect x="-7" y="-6" width="14" height="20" fill="#38BDF8"/>
+              <line x1="0" y1="-39" x2="0" y2="-26" stroke="#0F172A" stroke-width="3"/>
+              <line x1="-9" y1="-39" x2="9" y2="-39" stroke="#0F172A" stroke-width="3"/>
+              <line x1="0" y1="14" x2="0" y2="33" stroke="#475569" stroke-width="2.5"/>
             </g>
-            <text x="52" y="118" text-anchor="middle" fill="#9F1239" font-size="11" font-weight="900">REVOKED</text>
+            <text x="72" y="186" text-anchor="middle" fill="#9F1239" font-size="16" font-weight="900">REVOKED</text>
 
-            <!-- Right: Steep Rising Crimson 12-Month Epidemic Curve Chart Labeled US · MEX · BOL -->
-            <g transform="translate(108, 10)">
-              <rect x="0" y="0" width="116" height="112" rx="4" fill="#FFFFFF" stroke="#BE123C" stroke-width="2"/>
-              <!-- Chart Gridlines -->
-              <line x1="10" y1="28" x2="106" y2="28" stroke="#FCE7F3" stroke-width="1.2"/>
-              <line x1="10" y1="54" x2="106" y2="54" stroke="#FCE7F3" stroke-width="1.2"/>
-              <line x1="10" y1="80" x2="106" y2="80" stroke="#FCE7F3" stroke-width="1.2"/>
-              <text x="58" y="20" text-anchor="middle" fill="#881337" font-size="10.5" font-weight="900">12+ MO. SPREAD</text>
+            <!-- Right: Steep Glowing Crimson 12-Month Outbreak Curve Chart (US · MEX · BOL) -->
+            <g transform="translate(148, 16)">
+              <rect x="0" y="0" width="156" height="180" rx="6" fill="#FFFFFF" stroke="#BE123C" stroke-width="2.5"/>
+              <line x1="14" y1="45" x2="142" y2="45" stroke="#FCE7F3" stroke-width="1.5"/>
+              <line x1="14" y1="88" x2="142" y2="88" stroke="#FCE7F3" stroke-width="1.5"/>
+              <line x1="14" y1="131" x2="142" y2="131" stroke="#FCE7F3" stroke-width="1.5"/>
+              <text x="78" y="30" text-anchor="middle" fill="#881337" font-size="14.5" font-weight="900">12+ MO. SPREAD</text>
 
-              <!-- Shaded Outbreak Area & Steep Crimson Curve -->
-              <path d="M12,84 Q44,78 68,54 T102,26 L102,86 L12,86 Z" fill="#FFE4E6"/>
-              <path d="M12,84 Q44,78 68,54 T102,26" fill="none" stroke="#DC2626" stroke-width="4.5" stroke-linecap="round"/>
-              <circle cx="40" cy="76" r="4" fill="#DC2626" stroke="#FFFFFF" stroke-width="1.5"/>
-              <circle cx="72" cy="50" r="4.5" fill="#DC2626" stroke="#FFFFFF" stroke-width="1.5"/>
-              <circle cx="102" cy="26" r="5.5" fill="#DC2626" stroke="#FEF08A" stroke-width="2"/>
+              <path d="M16,138 Q58,128 92,88 T138,44 L138,142 L16,142 Z" fill="#FFE4E6"/>
+              <path d="M16,138 Q58,128 92,88 T138,44" fill="none" stroke="#DC2626" stroke-width="6" stroke-linecap="round"/>
+              <circle cx="54" cy="124" r="5.5" fill="#DC2626" stroke="#FFFFFF" stroke-width="2"/>
+              <circle cx="96" cy="82" r="6" fill="#DC2626" stroke="#FFFFFF" stroke-width="2"/>
+              <circle cx="138" cy="44" r="7.5" fill="#DC2626" stroke="#FEF08A" stroke-width="2.5"/>
 
-              <text x="58" y="103" text-anchor="middle" fill="#BE123C" font-size="10.5" font-weight="900">US · MEX · BOL</text>
+              <text x="78" y="166" text-anchor="middle" fill="#BE123C" font-size="15" font-weight="900">US · MEX · BOL</text>
             </g>
           </svg>
         </div>
-        <p class="caption"><strong>PAHO revokes</strong> measles elimination in <strong>US, Mexico &amp; Bolivia</strong> after 12+ months of spread.</p>
+        <div class="short-label"><span class="accent">US, Mexico &amp; Bolivia</span> · Cap Cana Summit</div>
       </article>
 
-      <!-- STORY 9: SPACE & SCIENCE -->
-      <article class="story">
-        <div class="story-kicker" style="border-top-color:#4338CA;">
-          <span class="kicker-left" style="color:#4338CA;">SPACE · SCIENCE</span>
-          <span class="kicker-loc">ISS &amp; MERCURY</span>
+      <!-- PANEL 9: SPACE, SCIENCE & SPORT -->
+      <article class="panel">
+        <div class="panel-kicker" style="border-top-color:#4338CA;">
+          <span class="kicker-beat" style="color:#4338CA;">SPACE, SCIENCE &amp; SPORT</span>
+          <span class="kicker-loc">GLOBAL</span>
         </div>
-        <h2 class="headline">ISS Dragon &amp; Mercury Probe</h2>
+        <h2 class="headline">ISS, Mercury &amp; ATP Semis</h2>
         <div class="art-frame">
-          <svg viewBox="0 0 232 132" xmlns="http://www.w3.org/2000/svg">
-            <rect width="232" height="132" fill="#090D16"/>
-            <circle cx="16" cy="12" r="1.3" fill="#FFFFFF"/>
-            <circle cx="110" cy="10" r="1.4" fill="#93C5FD"/>
-            <circle cx="216" cy="14" r="1.3" fill="#FFFFFF"/>
-            <circle cx="18" cy="118" r="1.4" fill="#FEF08A"/>
-            <circle cx="124" cy="92" r="1.2" fill="#FFFFFF"/>
+          <svg viewBox="0 0 316 212" xmlns="http://www.w3.org/2000/svg">
+            <!-- Top 58% (122px): Deep Cosmos — ISS + SpaceX Dragon + BepiColombo at Cratered Mercury -->
+            <rect x="0" y="0" width="316" height="122" fill="#090D16"/>
+            <circle cx="18" cy="14" r="1.5" fill="#FFFFFF"/>
+            <circle cx="132" cy="12" r="1.6" fill="#93C5FD"/>
+            <circle cx="296" cy="16" r="1.5" fill="#FFFFFF"/>
+            <circle cx="154" cy="106" r="1.5" fill="#FEF08A"/>
 
-            <line x1="0" y1="74" x2="232" y2="54" stroke="#334155" stroke-width="1.8" stroke-dasharray="5,3"/>
+            <!-- Top-Left: Golden ISS Solar Arrays + White SpaceX Dragon Capsule + Red 3D Vascular Medallion -->
+            <g transform="translate(8, 8)">
+              <line x1="6" y1="36" x2="94" y2="36" stroke="#CBD5E1" stroke-width="4.5"/>
+              <rect x="38" y="24" width="22" height="24" rx="3" fill="#F8FAFC" stroke="#475569" stroke-width="1.2"/>
+              <rect x="10" y="4" width="16" height="26" fill="#D97706" stroke="#FDE047" stroke-width="1.6"/>
+              <rect x="10" y="42" width="16" height="26" fill="#D97706" stroke="#FDE047" stroke-width="1.6"/>
+              <rect x="72" y="4" width="16" height="26" fill="#D97706" stroke="#FDE047" stroke-width="1.6"/>
+              <rect x="72" y="42" width="16" height="26" fill="#D97706" stroke="#FDE047" stroke-width="1.6"/>
 
-            <!-- Upper-Left: ISS Golden Solar Wings + SpaceX Dragon + Red 3D Vascular Medallion -->
-            <g transform="translate(6, 4)">
-              <line x1="6" y1="30" x2="80" y2="30" stroke="#CBD5E1" stroke-width="3.5"/>
-              <rect x="33" y="20" width="18" height="20" rx="2.5" fill="#F8FAFC" stroke="#475569" stroke-width="1"/>
-              <rect x="10" y="4" width="13" height="21" fill="#D97706" stroke="#FDE047" stroke-width="1.4"/>
-              <rect x="10" y="35" width="13" height="21" fill="#D97706" stroke="#FDE047" stroke-width="1.4"/>
-              <rect x="62" y="4" width="13" height="21" fill="#D97706" stroke="#FDE047" stroke-width="1.4"/>
-              <rect x="62" y="35" width="13" height="21" fill="#D97706" stroke="#FDE047" stroke-width="1.4"/>
-
-              <path d="M82,30 L104,30" stroke="#38BDF8" stroke-width="2.5" stroke-dasharray="3,2"/>
-              <path d="M108,20 C122,20 132,24 132,30 C132,36 122,40 108,40 L100,37 L100,23 Z" fill="#FFFFFF" stroke="#38BDF8" stroke-width="1.6"/>
-              <rect x="96" y="16" width="4.5" height="28" rx="1" fill="#0284C7"/>
-
-              <g transform="translate(182, 24)">
-                <circle cx="0" cy="0" r="20" fill="#1E1B4B" stroke="#F43F5E" stroke-width="2.2"/>
-                <path d="M-12,0 L2,0 M-3,0 Q3,-11 12,-12 M-3,0 Q3,11 12,12 M3,-7 L12,-5" fill="none" stroke="#FB7185" stroke-width="3" stroke-linecap="round"/>
+              <path d="M96,36 L114,36" stroke="#38BDF8" stroke-width="3" stroke-dasharray="4,2"/>
+              <path d="M118,24 C132,24 142,29 142,36 C142,43 132,48 118,48 L110,44 L110,28 Z" fill="#FFFFFF" stroke="#38BDF8" stroke-width="1.8"/>
+              <rect x="105" y="19" width="5" height="34" rx="1" fill="#0284C7"/>
+              <!-- Red 3D-Bioprinted Blood Vessel Medallion -->
+              <g transform="translate(126, 84)">
+                <circle cx="0" cy="0" r="19" fill="#1E1B4B" stroke="#F43F5E" stroke-width="2.2"/>
+                <path d="M-11,0 L2,0 M-3,0 Q3,-10 11,-11 M-3,0 Q3,10 11,11 M3,-6 L11,-4" fill="none" stroke="#FB7185" stroke-width="3" stroke-linecap="round"/>
               </g>
             </g>
 
-            <!-- Lower-Right: Winged BepiColombo Sweeping Cyan X-Ray Beam Across Cratered Mercury Crescent -->
-            <g transform="translate(0, 56)">
-              <path d="M10,62 Q68,16 158,28" fill="none" stroke="#FACC15" stroke-width="2.2" stroke-dasharray="4,3"/>
-              <polygon points="86,32 174,8 174,64" fill="#22D3EE" opacity="0.38"/>
-              <line x1="86" y1="32" x2="174" y2="18" stroke="#38BDF8" stroke-width="1.8" stroke-dasharray="4,2"/>
-              <line x1="86" y1="32" x2="174" y2="50" stroke="#38BDF8" stroke-width="1.8" stroke-dasharray="4,2"/>
+            <!-- Top-Right: Winged BepiColombo Sweeping Cyan X-Ray Beam Across Cratered Mercury Crescent -->
+            <g transform="translate(154, 6)">
+              <polygon points="48,54 118,16 118,96" fill="#22D3EE" opacity="0.38"/>
+              <line x1="48" y1="54" x2="118" y2="30" stroke="#38BDF8" stroke-width="2" stroke-dasharray="4,2"/>
+              <line x1="48" y1="54" x2="118" y2="78" stroke="#38BDF8" stroke-width="2" stroke-dasharray="4,2"/>
 
-              <g transform="translate(76, 32) rotate(-14)">
-                <polygon points="-34,-5 -10,-3.5 -10,3.5 -34,5" fill="#0284C7" stroke="#7DD3FC" stroke-width="1.4"/>
-                <polygon points="10,-3.5 34,-5 34,5 10,3.5" fill="#0284C7" stroke="#7DD3FC" stroke-width="1.4"/>
-                <rect x="-10" y="-8.5" width="20" height="17" rx="2.5" fill="#FACC15" stroke="#FFFFFF" stroke-width="1.6"/>
-                <circle cx="0" cy="0" r="4" fill="#0F172A"/>
+              <g transform="translate(42, 54) rotate(-14)">
+                <polygon points="-36,-6 -11,-4 -11,4 -36,6" fill="#0284C7" stroke="#7DD3FC" stroke-width="1.5"/>
+                <polygon points="11,-4 36,-6 36,6 11,4" fill="#0284C7" stroke="#7DD3FC" stroke-width="1.5"/>
+                <rect x="-11" y="-9.5" width="22" height="19" rx="3" fill="#FACC15" stroke="#FFFFFF" stroke-width="1.8"/>
+                <circle cx="0" cy="0" r="4.2" fill="#0F172A"/>
               </g>
 
-              <circle cx="188" cy="38" r="31" fill="#475569" stroke="#CBD5E1" stroke-width="2.2"/>
-              <path d="M188,7 A31,31 0 0,0 188,69 A20,31 0 0,1 188,7 Z" fill="#CBD5E1"/>
-              <circle cx="176" cy="26" r="5.5" fill="#64748B" stroke="#94A3B8" stroke-width="1"/>
-              <circle cx="198" cy="44" r="7" fill="#334155" stroke="#64748B" stroke-width="1"/>
-              <circle cx="180" cy="52" r="4.2" fill="#64748B"/>
-            </g>
-          </svg>
-        </div>
-        <p class="caption">Dragon returns <strong>3D-printed blood vessels</strong>; <strong>BepiColombo</strong> tests X-ray gear at Mercury.</p>
-      </article>
-
-      <!-- STORY 10: SOCIETY & SPORT -->
-      <article class="story">
-        <div class="story-kicker" style="border-top-color:#047857;">
-          <span class="kicker-left" style="color:#047857;">SOCIETY &amp; SPORT</span>
-          <span class="kicker-loc">EU &amp; TURIN</span>
-        </div>
-        <h2 class="headline">EU Youth March; ATP Semis</h2>
-        <div class="art-frame">
-          <svg viewBox="0 0 232 132" xmlns="http://www.w3.org/2000/svg">
-            <rect width="232" height="132" fill="#F8FAFC"/>
-            <!-- Left Half: Marching Students Raising House & Euro Placards Under EU Stars -->
-            <rect x="3" y="3" width="110" height="126" rx="3" fill="#EFF6FF" stroke="#1D4ED8" stroke-width="1.6"/>
-            <g fill="#FACC15" stroke="#B45309" stroke-width="0.5">
-              <circle cx="24" cy="15" r="3.2"/>
-              <circle cx="40" cy="11" r="3.2"/>
-              <circle cx="58" cy="9" r="3.2"/>
-              <circle cx="76" cy="11" r="3.2"/>
-              <circle cx="92" cy="15" r="3.2"/>
+              <circle cx="126" cy="56" r="34" fill="#475569" stroke="#CBD5E1" stroke-width="2.5"/>
+              <path d="M126,22 A34,34 0 0,0 126,90 A22,34 0 0,1 126,22 Z" fill="#CBD5E1"/>
+              <circle cx="114" cy="42" r="6" fill="#64748B" stroke="#94A3B8" stroke-width="1.2"/>
+              <circle cx="138" cy="62" r="7.5" fill="#334155" stroke="#64748B" stroke-width="1.2"/>
+              <circle cx="118" cy="72" r="4.8" fill="#64748B"/>
             </g>
 
-            <g transform="translate(10, 22) rotate(-5)">
-              <rect x="0" y="0" width="42" height="32" rx="3" fill="#FEF08A" stroke="#0F172A" stroke-width="1.8"/>
-              <polygon points="21,5 8,16 12,16 12,27 30,27 30,16 34,16" fill="#DC2626"/>
-              <rect x="18" y="19" width="6" height="8" fill="#FEF08A"/>
-              <line x1="21" y1="32" x2="21" y2="66" stroke="#0F172A" stroke-width="3.2"/>
-            </g>
+            <line x1="0" y1="122" x2="316" y2="122" stroke="#F8FAFC" stroke-width="2.5"/>
 
-            <g transform="translate(60, 27) rotate(5)">
-              <rect x="0" y="0" width="42" height="32" rx="3" fill="#FCA5A5" stroke="#7F1D1D" stroke-width="1.8"/>
-              <text x="21" y="24" text-anchor="middle" fill="#7F1D1D" font-size="22" font-weight="900">€</text>
-              <line x1="21" y1="32" x2="21" y2="64" stroke="#0F172A" stroke-width="3.2"/>
+            <!-- Bottom 42% (90px): Left EU Youth March Placards | Right Blue Turin ATP Tennis Court & Trophy -->
+            <!-- Bottom-Left: EU Youth March -->
+            <rect x="0" y="123" width="144" height="89" fill="#EFF6FF"/>
+            <g transform="translate(14, 130) rotate(-4)">
+              <rect x="0" y="0" width="46" height="34" rx="3.5" fill="#FEF08A" stroke="#0F172A" stroke-width="2"/>
+              <polygon points="23,5 9,17 13,17 13,29 33,29 33,17 37,17" fill="#DC2626"/>
+              <line x1="23" y1="34" x2="23" y2="68" stroke="#0F172A" stroke-width="3.5"/>
             </g>
-
+            <g transform="translate(76, 132) rotate(5)">
+              <rect x="0" y="0" width="46" height="34" rx="3.5" fill="#FCA5A5" stroke="#7F1D1D" stroke-width="2"/>
+              <text x="23" y="25" text-anchor="middle" fill="#7F1D1D" font-size="23" font-weight="900">€</text>
+              <line x1="23" y1="34" x2="23" y2="68" stroke="#0F172A" stroke-width="3.5"/>
+            </g>
             <g fill="#0F172A">
-              <circle cx="24" cy="94" r="7.5"/>
-              <path d="M11,124 C11,106 37,106 37,124 Z"/>
-              <path d="M16,106 L29,82" stroke="#0F172A" stroke-width="4.5" stroke-linecap="round"/>
-
-              <circle cx="58" cy="91" r="8"/>
-              <path d="M43,124 C43,104 73,104 73,124 Z"/>
-              <path d="M65,104 L76,84" stroke="#0F172A" stroke-width="4.5" stroke-linecap="round"/>
-
-              <circle cx="90" cy="95" r="7.5"/>
-              <path d="M77,124 C77,107 103,107 103,124 Z"/>
+              <circle cx="36" cy="192" r="8"/><path d="M22,212 C22,198 50,198 50,212 Z"/>
+              <circle cx="74" cy="190" r="8.5"/><path d="M58,212 C58,196 90,196 90,212 Z"/>
+              <circle cx="110" cy="193" r="8"/><path d="M96,212 C96,198 124,198 124,212 Z"/>
             </g>
 
-            <!-- Right Half: Turin Indoor Tennis Court, Net, Yellow Ball Arc & Gold Trophy -->
-            <rect x="118" y="3" width="111" height="126" rx="3" fill="#0F172A" stroke="#38BDF8" stroke-width="1.6"/>
-            <g transform="translate(173, 21)">
-              <path d="M-11,-11 L11,-11 L8,2 C8,8 0,10 0,10 C0,10 -8,8 -8,2 Z" fill="#FACC15" stroke="#FEF08A" stroke-width="1.4"/>
-              <rect x="-3.5" y="10" width="7" height="4" fill="#D97706"/>
-              <rect x="-9" y="14" width="18" height="3.5" rx="1" fill="#FACC15"/>
+            <line x1="144" y1="123" x2="144" y2="212" stroke="#0F172A" stroke-width="2.5"/>
+
+            <!-- Bottom-Right: Blue Turin ATP Tennis Court, Net, Arcing Yellow Ball & Gold Trophy -->
+            <rect x="145" y="123" width="171" height="89" fill="#0F172A"/>
+            <!-- Gold ATP Trophy at Top Left of Tennis Panel -->
+            <g transform="translate(162, 138)">
+              <path d="M-8,-8 L8,-8 L6,2 C6,7 0,9 0,9 C0,9 -6,7 -6,2 Z" fill="#FACC15" stroke="#FEF08A" stroke-width="1.2"/>
+              <rect x="-3" y="9" width="6" height="3" fill="#D97706"/>
+              <rect x="-7" y="12" width="14" height="3" rx="1" fill="#FACC15"/>
             </g>
-
-            <polygon points="136,46 210,46 222,120 124,120" fill="#2563EB" stroke="#FFFFFF" stroke-width="2"/>
-            <line x1="131" y1="68" x2="215" y2="68" stroke="#E0F2FE" stroke-width="1.6"/>
-            <line x1="127" y1="100" x2="219" y2="100" stroke="#E0F2FE" stroke-width="1.6"/>
-            <line x1="173" y1="46" x2="173" y2="120" stroke="#FFFFFF" stroke-width="1.6"/>
-            <line x1="126" y1="80" x2="220" y2="80" stroke="#FEF08A" stroke-width="2.2" stroke-dasharray="4,2"/>
-
-            <path d="M140,110 Q162,52 196,68" fill="none" stroke="#FEF08A" stroke-width="3" stroke-dasharray="4,3"/>
-            <circle cx="196" cy="68" r="9.5" fill="#EAB308" stroke="#FFFFFF" stroke-width="2"/>
+            <polygon points="180,136 294,136 308,204 166,204" fill="#2563EB" stroke="#FFFFFF" stroke-width="2.2"/>
+            <line x1="174" y1="160" x2="300" y2="160" stroke="#E0F2FE" stroke-width="1.6"/>
+            <line x1="169" y1="186" x2="305" y2="186" stroke="#E0F2FE" stroke-width="1.6"/>
+            <line x1="237" y1="136" x2="237" y2="204" stroke="#FFFFFF" stroke-width="1.8"/>
+            <line x1="168" y1="170" x2="306" y2="170" stroke="#FEF08A" stroke-width="2.4" stroke-dasharray="4,2"/>
+            <path d="M188,194 Q224,140 270,158" fill="none" stroke="#FEF08A" stroke-width="3.2" stroke-dasharray="5,3"/>
+            <circle cx="270" cy="158" r="10.5" fill="#EAB308" stroke="#FFFFFF" stroke-width="2.2"/>
           </svg>
         </div>
-        <p class="caption">Students protest housing costs in <strong>20+ EU states</strong>; <strong>Alcaraz &amp; Medvedev</strong> in ATP semis.</p>
+        <div class="short-label">Dragon Bio-Lab · BepiColombo · <span class="accent" style="color:#1D4ED8;">Alcaraz Wins</span></div>
       </article>
     </section>
 
-    <!-- TIER D: AROUND THE WORLD · 6 MORE VERIFIED DISPATCHES BAND (144px tall) -->
-    <section class="tier-d">
-      <div class="tier-d-header">
-        <span>AROUND THE WORLD · 6 MORE VERIFIED DISPATCHES</span>
-        <span class="gold">LAW · LATIN AMERICA · NORTH AMERICA · EASTERN EUROPE · ENVIRONMENT · WEST AFRICA</span>
-      </div>
-      <div class="tier-d-grid">
-        <!-- STORY 11: LAW · MYANMAR & UK -->
-        <div class="brief-cell">
-          <div class="brief-icon">
-            <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-              <rect width="36" height="36" fill="#7F1D1D"/>
-              <line x1="7" y1="24" x2="23" y2="10" stroke="#FDE047" stroke-width="3.5" stroke-linecap="round"/>
-              <rect x="19" y="5" width="8" height="13" rx="1.5" transform="rotate(-40 23 11)" fill="#F59E0B" stroke="#FFFFFF" stroke-width="1.2"/>
-              <rect x="6" y="27" width="24" height="4" rx="1" fill="#FCA5A5"/>
-            </svg>
-          </div>
-          <div class="brief-body">
-            <div class="brief-top"><span class="brief-pill" style="background:#991B1B;">LAW · MYANMAR &amp; UK</span></div>
-            <div class="brief-headline">UK Expels Myanmar Attaché</div>
-            <div class="brief-lead">Follows <strong>ICJ Rohingya genocide ruling</strong>; EU urges compliance.</div>
-          </div>
-        </div>
-
-        <!-- STORY 12: LATIN AMERICA · SUMMIT -->
-        <div class="brief-cell">
-          <div class="brief-icon">
-            <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-              <rect width="36" height="36" fill="#064E3B"/>
-              <circle cx="18" cy="18" r="13" fill="none" stroke="#34D399" stroke-width="2"/>
-              <path d="M11,12 L18,25 L25,12" fill="none" stroke="#FEF08A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-              <line x1="18" y1="7" x2="18" y2="25" stroke="#FEF08A" stroke-width="3" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="brief-body">
-            <div class="brief-top"><span class="brief-pill" style="background:#0F766E;">LATIN AMERICA · SUMMIT</span></div>
-            <div class="brief-headline">Cap Cana Talks; Darién -90%</div>
-            <div class="brief-lead">Caribbean leaders meet; IOM says <strong>Darién crossings fell 90%</strong>.</div>
-          </div>
-        </div>
-
-        <!-- STORY 13: NORTH AMERICA · TRADE -->
-        <div class="brief-cell">
-          <div class="brief-icon">
-            <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-              <rect width="36" height="36" fill="#1E3A8A"/>
-              <polygon points="4,22 32,22 28,30 8,30" fill="#38BDF8" stroke="#FFFFFF" stroke-width="1.2"/>
-              <rect x="9" y="13" width="8" height="9" fill="#F59E0B"/>
-              <rect x="19" y="11" width="8" height="11" fill="#10B981"/>
-            </svg>
-          </div>
-          <div class="brief-body">
-            <div class="brief-top"><span class="brief-pill" style="background:#1D4ED8;">NORTH AMERICA · TRADE</span></div>
-            <div class="brief-headline">US Touts $17B Asia Deals</div>
-            <div class="brief-lead">White House details <strong>$17B in post-APEC trade</strong> agreements.</div>
-          </div>
-        </div>
-
-        <!-- STORY 14: EASTERN EUROPE · FRONT -->
-        <div class="brief-cell">
-          <div class="brief-icon">
-            <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-              <rect width="36" height="36" fill="#1E293B"/>
-              <path d="M8,6 L28,6 L28,18 C28,26 18,31 18,31 C18,31 8,26 8,18 Z" fill="#0284C7" stroke="#FACC15" stroke-width="2"/>
-              <path d="M13,18 L17,22 L24,13" fill="none" stroke="#FACC15" stroke-width="3" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="brief-body">
-            <div class="brief-top"><span class="brief-pill" style="background:#0369A1;">EASTERN EUROPE · FRONT</span></div>
-            <div class="brief-headline">Ukraine Retakes 14 Villages</div>
-            <div class="brief-lead">Forces liberate <strong>14 border settlements</strong> near Velykyi Burluk.</div>
-          </div>
-        </div>
-
-        <!-- STORY 15: AMERICAS · ENVIRONMENT -->
-        <div class="brief-cell">
-          <div class="brief-icon">
-            <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-              <rect width="36" height="36" fill="#451A03"/>
-              <circle cx="18" cy="14" r="8" fill="#F97316"/>
-              <line x1="5" y1="21" x2="31" y2="21" stroke="#FDE047" stroke-width="2.5" stroke-linecap="round"/>
-              <line x1="8" y1="26" x2="28" y2="26" stroke="#CBD5E1" stroke-width="2.5" stroke-linecap="round"/>
-              <line x1="6" y1="31" x2="30" y2="31" stroke="#94A3B8" stroke-width="2.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="brief-body">
-            <div class="brief-top"><span class="brief-pill" style="background:#B45309;">AMERICAS · ENVIRONMENT</span></div>
-            <div class="brief-headline">Mexico City Smog Hits 157 AQI</div>
-            <div class="brief-lead">Stagnant air pushes capital among <strong>world's most polluted</strong>.</div>
-          </div>
-        </div>
-
-        <!-- STORY 16: WEST AFRICA · MARITIME -->
-        <div class="brief-cell">
-          <div class="brief-icon">
-            <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-              <rect width="36" height="36" fill="#0C4A6E"/>
-              <circle cx="18" cy="18" r="12" fill="none" stroke="#FFFFFF" stroke-width="5"/>
-              <circle cx="18" cy="18" r="12" fill="none" stroke="#EF4444" stroke-width="5" stroke-dasharray="10,9"/>
-            </svg>
-          </div>
-          <div class="brief-body">
-            <div class="brief-top"><span class="brief-pill" style="background:#047857;">WEST AFRICA · MARITIME</span></div>
-            <div class="brief-headline">Senegal &amp; Nigeria Rescues</div>
-            <div class="brief-lead">Crews deploy after fatal boat capsizings in <strong>Yenne &amp; Sagbama</strong>.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER DATELINE RULE -->
+    <!-- BOTTOM BROADSHEET DATELINE BAR (13px BOLD) -->
     <footer class="footer">
       <div class="legend">
         <span class="legend-item"><span class="dot" style="background:#EF4444;"></span>EUROPE</span>
+        <span class="legend-item"><span class="dot" style="background:#F97316;"></span>SOUTH ASIA</span>
         <span class="legend-item"><span class="dot" style="background:#3B82F6;"></span>EAST ASIA</span>
-        <span class="legend-item"><span class="dot" style="background:#F97316;"></span>SOUTH &amp; SE ASIA</span>
-        <span class="legend-item"><span class="dot" style="background:#DC2626;"></span>MIDDLE EAST</span>
+        <span class="legend-item"><span class="dot" style="background:#14B8A6;"></span>CLIMATE</span>
+        <span class="legend-item"><span class="dot" style="background:#DC2626;"></span>MIDEAST</span>
         <span class="legend-item"><span class="dot" style="background:#F59E0B;"></span>AFRICA</span>
-        <span class="legend-item"><span class="dot" style="background:#EC4899;"></span>NORTH &amp; LATIN AMERICA</span>
-        <span class="legend-item"><span class="dot" style="background:#14B8A6;"></span>CLIMATE &amp; SPACE</span>
+        <span class="legend-item"><span class="dot" style="background:#EC4899;"></span>AMERICAS</span>
+        <span class="legend-item"><span class="dot" style="background:#818CF8;"></span>SPACE &amp; SPORT</span>
       </div>
-      <div>FRIDAY, 20 NOVEMBER 2026 · GLOBAL SUMMARY</div>
+      <div>20 NOV 2026</div>
     </footer>
   </div>
 </body>
@@ -1379,11 +1085,11 @@ async function renderPoster() {
         await document.fonts.ready;
         await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
         const root = document.documentElement;
-        const stories = Array.from(document.querySelectorAll('.story'));
-        const storyChecks = stories.map((c, idx) => {
+        const panels = Array.from(document.querySelectorAll('.panel'));
+        const panelChecks = panels.map((c, idx) => {
           const r = c.getBoundingClientRect();
           const h = c.querySelector('.headline');
-          const s = c.querySelector('.caption');
+          const s = c.querySelector('.short-label');
           const svg = c.querySelector('svg');
           const svgRect = svg.getBoundingClientRect();
           const svgTextIssues = [];
@@ -1394,33 +1100,21 @@ async function renderPoster() {
             }
           }
           return {
-            story: idx + 1,
+            panel: idx + 1,
             width: Math.round(r.width * 10) / 10,
             height: Math.round(r.height * 10) / 10,
-            storyOverflowY: c.scrollHeight > c.clientHeight + 1,
-            storyOverflowX: c.scrollWidth > c.clientWidth + 1,
+            artHeight: Math.round(svgRect.height * 10) / 10,
+            panelOverflowY: c.scrollHeight > c.clientHeight + 1,
+            panelOverflowX: c.scrollWidth > c.clientWidth + 1,
             headlineOverflow: h ? h.scrollWidth > h.clientWidth + 1 : false,
-            captionOverflow: s ? s.scrollHeight > s.clientHeight + 2 : false,
+            shortLabelOverflow: s ? s.scrollWidth > s.clientWidth + 1 : false,
             svgTextIssues,
-          };
-        });
-        const briefs = Array.from(document.querySelectorAll('.brief-cell'));
-        const briefChecks = briefs.map((b, idx) => {
-          const bh = b.querySelector('.brief-headline');
-          const bl = b.querySelector('.brief-lead');
-          return {
-            brief: idx + 11,
-            cellOverflowX: b.scrollWidth > b.clientWidth + 1,
-            cellOverflowY: b.scrollHeight > b.clientHeight + 1,
-            headlineOverflow: bh ? bh.scrollWidth > bh.clientWidth + 1 : false,
-            leadOverflow: bl ? bl.scrollWidth > bl.clientWidth + 1 : false,
           };
         });
         return {
           scrollWidth: root.scrollWidth,
           scrollHeight: root.scrollHeight,
-          storyChecks,
-          briefChecks,
+          panelChecks,
         };
       })()`,
     });
@@ -1431,20 +1125,15 @@ async function renderPoster() {
     if (audit.scrollWidth > 1024 || audit.scrollHeight > 1024) {
       throw new Error(`Viewport overflow: ${audit.scrollWidth}x${audit.scrollHeight}`);
     }
-    for (const c of audit.storyChecks) {
+    for (const c of audit.panelChecks) {
       if (
-        c.storyOverflowX ||
-        c.storyOverflowY ||
+        c.panelOverflowX ||
+        c.panelOverflowY ||
         c.headlineOverflow ||
-        c.captionOverflow ||
+        c.shortLabelOverflow ||
         c.svgTextIssues.length > 0
       ) {
-        throw new Error(`Story overflow detected in story ${c.story}: ${JSON.stringify(c)}`);
-      }
-    }
-    for (const b of audit.briefChecks) {
-      if (b.cellOverflowX || b.cellOverflowY || b.headlineOverflow || b.leadOverflow) {
-        throw new Error(`Brief overflow detected in brief ${b.brief}: ${JSON.stringify(b)}`);
+        throw new Error(`Panel overflow detected in panel ${c.panel}: ${JSON.stringify(c)}`);
       }
     }
 

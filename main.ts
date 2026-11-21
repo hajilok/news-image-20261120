@@ -107,9 +107,9 @@ function validatePng(buf: Buffer): void {
     offset = crcOffset + 4;
   }
 
-  if (!sawIhdr || !sawIdat || totalIdatBytes === 0 || !sawIend) {
+  if (!sawIhdr || !sawIdat || totalIdatBytes === 0 || !sawIend || offset !== buf.byteLength) {
     throw new Error(
-      `Missing required PNG chunks: IHDR=${sawIhdr}, IDAT=${sawIdat} (${totalIdatBytes} bytes), IEND=${sawIend}`
+      `Invalid PNG structure: IHDR=${sawIhdr}, IDAT=${sawIdat} (${totalIdatBytes} bytes), IEND=${sawIend}, parsed=${offset}/${buf.byteLength}`
     );
   }
 }
